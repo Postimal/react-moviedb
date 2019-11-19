@@ -18,7 +18,7 @@ import SearchForm from '../SearchForm/SearchForm'
                 </div>
                 <SearchForm/>
                 <div className="nav-panel-control-list">
-                <Link to={'/'}>
+                    <Link to={'/'}>
                     <button className="main-nav-bottom-section__button">
                         {/* {can be font-awesome} */}
                     </button>

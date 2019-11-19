@@ -16,7 +16,7 @@ import './SearchForm.scss';
         return (
             <form className="nav-search-form">
                 <input onChange={this.handleSearchInput} type="text" placeholder="search..."/>
-                <Link to={`/searchResult/${this.state.searchValue}`}>
+                <Link to={`/:${this.state.searchValue}`}>
                     <button>SEARCH</button>
                 </Link>
             </form>
