@@ -1,0 +1,10 @@
+body {
+    background-color: #000;
+}
+.app {
+    color:red;
+
+    &-title {
+        color: green
+    }
+}

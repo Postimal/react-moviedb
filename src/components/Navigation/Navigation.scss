@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.nav-panel {
+    background-color:$tertiary-color;
+    height: 6vh;
+    border: 2px solid $secondary-color;
+    border-radius: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        background-color: #ddd;
+        margin: 0 auto;
+        margin-left: 2vw;
+        height: 90%;
+        width: 6vh;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img{
+           width: 28px;
+        }
+    }
+}
