@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
+import { CircularProgressbar } from "react-circular-progressbar";
 import './SearchResults.scss';
-import Spinner from '../Spinner/Spinner'
+import "react-circular-progressbar/dist/styles.css";
 
  class SearchResults extends Component {
      state = {
@@ -19,17 +21,30 @@ import Spinner from '../Spinner/Spinner'
       }
 
     render() {
-        const {isLoading, SearchResults } = this.state;
-
-        // const movieItem = {SearchResult.map(item =>)}
+        const { SearchResults } = this.state;
         
         
-        if (isLoading) {
+        if (SearchResults === null) {
             return <Spinner />
           }
         return (
             <div>
-                {console.log(this.state.SearchResults)}
+                
+                {console.log(SearchResults.results)}
+                {SearchResults.results.map(item => (
+                    <div key={item.id} className="movie-container">
+                        <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${item.poster_path}`} alt="movie poster"/>
+                        <div className="movie-container-info">
+                            <a href={`https://www.themoviedb.org/movie/${item.id}?language=en-US`}>{item.original_title}</a>
+                            <div style={{maxHeight:'100px', maxWidth:'100px'}}><CircularProgressbar value={`${item.vote_average}`*10} text={`${item.vote_average}`* 10 + '%'}/>User Score</div>
+                        </div>
+                        
+
+                    </div>
+                    
+                )
+                )}
+                
                 <p>fsdgdfgdg</p>
             </div>
         )

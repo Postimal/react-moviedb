@@ -50,6 +50,9 @@ import Navigation from '../Navigation/Navigation';
 
     }
 
+
+    
+
     render() {
       const { isLoading } = this.state;
 
