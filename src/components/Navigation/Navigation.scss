@@ -11,7 +11,6 @@
 
     .logo {
         background-color: #ddd;
-        margin: 0 auto;
         margin-left: 2vw;
         height: 90%;
         width: 6vh;
@@ -23,5 +22,9 @@
         img{
            width: 28px;
         }
+    }
+    
+    &-control-list {
+        margin-right:2vw;
     }
 }

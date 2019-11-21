@@ -1,5 +1,29 @@
 @import '../../styles/variables';
 
 .nav-search-form {
+    position: relative;
     display: flex;
+    height: 70%;
+
+    input {
+          border-radius: 10px;
+    }
+  
+
+    &-button button {
+        position:absolute;
+        right:0;
+        top:3px;
+        border-radius:8px;
+        background:#000;
+        opacity: 0.8;
+    }
+    
+    svg {
+        fill: rgba(219, 69, 69, 0.61);
+        height: 20px;
+    }
+    &:hover {
+        fill:#000;
+    }
 }

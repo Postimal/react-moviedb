@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Navigation.scss';
 import logo from './cinema-clapboard.png';
 import SearchForm from '../SearchForm/SearchForm'
+
+import './Navigation.scss';
+
 
  class Navigation extends Component {
     render() {
@@ -20,17 +22,19 @@ import SearchForm from '../SearchForm/SearchForm'
                 <div className="nav-panel-control-list">
                     <Link to={'/'}>
                     <button className="main-nav-bottom-section__button">
-                        {/* {can be font-awesome} */}
+                        HOME
                     </button>
                     </Link>
 
-                    <Link to={'/profile'}>
+                    <Link to={'/login'}>
                     <button className="main-nav-bottom-section__button">
+                        LOGIN
                     </button>
+                    {/* moze zmienie to na navlink i dam poza home zeby navi bylo zawsze dostępne */}
                     </Link>
-
                     <Link to={'/discover'}>
                     <button className="main-nav-bottom-section__button">
+                        DICOVER
                     </button>
                     </Link>
                 </div>
