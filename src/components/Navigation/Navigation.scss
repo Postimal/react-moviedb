@@ -25,6 +25,22 @@
     }
     
     &-control-list {
-        margin-right:2vw;
+        margin-right:1.5vw;
     }
+    a {
+     display: inline-block;
+    }
+
+    .main-nav-bottom-section__button {
+        height: 32px;
+        border:2px solid rgba(219, 69, 69, 0.50);
+        border-radius: 10px;
+        margin: 10px;
+        color:  rgba(219, 69, 69, 0.90);
+        background: #000;
+        font-family: $primary-font;
+        font-weight: 700;
+        cursor: pointer;
+    }
+   
 }

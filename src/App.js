@@ -8,9 +8,10 @@ import Navigation from './components/Navigation/Navigation';
 function App() {
   return (
     <BrowserRouter>
+      <Navigation/>
       <Switch>
-        <Route path='/' exact component={Home}/>
-        <Route path='/:id' component={SearchResults}/>
+        <Route path='/home' exact component={Home}/>
+        <Route path='/search/:id' exact component={SearchResults}/>
       </Switch>
     </BrowserRouter>
      

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import logo from './cinema-clapboard.png';
 import SearchForm from '../SearchForm/SearchForm'
 
@@ -11,7 +11,7 @@ import './Navigation.scss';
         return (
             <div className="nav-panel">
                 <div className="logo">
-                    <Link to={'/'}>
+                    <Link to={'/home'}>
                         <img 
                         src={logo}
                         alt="logo."
@@ -20,23 +20,23 @@ import './Navigation.scss';
                 </div>
                 <SearchForm/>
                 <div className="nav-panel-control-list">
-                    <Link to={'/'}>
+                    <NavLink  to={'/home'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         HOME
                     </button>
-                    </Link>
+                    </NavLink>
 
-                    <Link to={'/login'}>
+                    <NavLink to={'/login'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         LOGIN
                     </button>
                     {/* moze zmienie to na navlink i dam poza home zeby navi bylo zawsze dostępne */}
-                    </Link>
-                    <Link to={'/discover'}>
+                    </NavLink>
+                    <NavLink to={'/discover'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         DICOVER
                     </button>
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         )

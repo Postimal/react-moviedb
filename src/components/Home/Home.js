@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Swiper from 'swiper';
+import HomeHeader from '../HomeHeader/HomeHeader';
 import ItemCarousel from '../ItemCarousel/ItemCarousel';
 import Spinner from '../Spinner/Spinner';
-import Navigation from '../Navigation/Navigation';
 
  class Home extends Component {
      state = {
@@ -16,7 +16,6 @@ import Navigation from '../Navigation/Navigation';
      }
 
     componentDidMount(){
-      console.log(process.env.REACT_MOVIEDB_KEY)
       this.setState({isLoading: true})
         fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&page=1`)
             .then(res => res.json())
@@ -55,6 +54,8 @@ import Navigation from '../Navigation/Navigation';
 
     render() {
       const { isLoading } = this.state;
+      console.log(this.state.movieGenres);
+
 
         
          // Initiates carousels
@@ -107,7 +108,7 @@ import Navigation from '../Navigation/Navigation';
         }
         return (
             <div>
-                <Navigation/>
+                <HomeHeader MDBConfig={this.state.MDBConfig} movieGenres={this.state.movieGenres.genres} items={this.state.now_playing.results}/>
                 {movie}
             </div>
            

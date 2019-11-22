@@ -45,7 +45,7 @@ class ItemCarousel extends Component {
 
           <div className="swiper-button-prev"></div>
           <div className="swiper-button-next"></div>
-      </div>
+        </div>
 
       <hr className="carousel-container__separator" />
     </div>
