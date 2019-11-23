@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/carousel';
+@import "../../styles/variables";
+@import "../../styles/carousel";
 
 .home-swiper-container {
   overflow: hidden;
@@ -36,7 +36,8 @@
       }
 
       // swiper-slide__item-duration, // swiper-slide__category
-      &__item-duration, &__category {
+      &__item-duration,
+      &__category {
         color: $secondary-font-color;
         margin: 0;
       }
@@ -49,7 +50,9 @@
         text-decoration: none;
       }
 
-      a:active, a:hover, a:visited {
+      a:active,
+      a:hover,
+      a:visited {
         color: initial;
         text-decoration: none;
       }
@@ -63,9 +66,7 @@
 
 @media only screen and (min-width: 600px) {
   .home-swiper-container {
-
     .swiper-wrapper {
-
       .swiper-slide {
         height: 500px;
       }
@@ -74,28 +75,28 @@
 }
 
 @media only screen and (min-width: 900px) {
-    .home-swiper-container {
-      background-color: $primary-font-color;;
-      padding-top: 4.9rem;
-  
-      .swiper-pagination-progressbar-fill {
-        background-color: $secondary-color;
-        padding-top: 4.7rem;
+  .home-swiper-container {
+    background-color: $primary-font-color;
+    // padding-top: 0.5rem;
+
+    .swiper-pagination-progressbar-fill {
+      background-color: $secondary-color;
+      // padding-top: 0.5rem;
+      height: 2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .home-swiper-container {
+    .swiper-wrapper {
+      div {
+        padding: 3rem;
+      }
+
+      .swiper-slide {
+        height: 92vh;
       }
     }
   }
-  
-  @media only screen and (min-width: 1250px) {
-    .home-swiper-container {
-  
-      .swiper-wrapper {
-        div {
-          padding: 3rem;
-        }
-  
-        .swiper-slide {
-          height: 92vh;
-        }
-      }
-    }
-  }
+}

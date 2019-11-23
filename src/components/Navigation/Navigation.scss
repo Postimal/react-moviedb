@@ -1,46 +1,46 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .nav-panel {
-    background-color:$tertiary-color;
-    height: 6vh;
-    border: 2px solid $secondary-color;
-    border-radius: 3vh;
+  background-color: $tertiary-color;
+  height: 6vh;
+  border: 2px solid $secondary-color;
+  border-radius: 3vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+
+  .logo {
+    background-color: #ddd;
+    margin-left: 2vw;
+    height: 90%;
+    width: 6vh;
+    border-radius: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
-    .logo {
-        background-color: #ddd;
-        margin-left: 2vw;
-        height: 90%;
-        width: 6vh;
-        border-radius: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    img {
+      width: 28px;
+    }
+  }
 
-        img{
-           width: 28px;
-        }
-    }
-    
-    &-control-list {
-        margin-right:1.5vw;
-    }
-    a {
-     display: inline-block;
-    }
+  &-control-list {
+    margin-right: 1.5vw;
+  }
+  a {
+    display: inline-block;
+  }
 
-    .main-nav-bottom-section__button {
-        height: 32px;
-        border:2px solid rgba(219, 69, 69, 0.50);
-        border-radius: 10px;
-        margin: 10px;
-        color:  rgba(219, 69, 69, 0.90);
-        background: #000;
-        font-family: $primary-font;
-        font-weight: 700;
-        cursor: pointer;
-    }
-   
+  .main-nav-bottom-section__button {
+    height: 32px;
+    border: 2px solid rgba(219, 69, 69, 0.5);
+    border-radius: 10px;
+    margin: 10px;
+    color: rgba(219, 69, 69, 0.9);
+    background: #000;
+    font-family: $primary-font;
+    font-weight: 700;
+    cursor: pointer;
+  }
 }
