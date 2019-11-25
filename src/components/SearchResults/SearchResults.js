@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../Spinner/Spinner';
 import { CircularProgressbar } from "react-circular-progressbar";
+import ControlBar from './ControlBar/ControlBar';
 import './SearchResults.scss';
 import "react-circular-progressbar/dist/styles.css";
 
@@ -19,13 +20,20 @@ import "react-circular-progressbar/dist/styles.css";
         .then(data => this.setState({SearchResults: data, isLoading:false}))
       }
 
-      handleClick = () => {
-          this.setState({page: this.state.page +1})
-            fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
+      handleNextPage = () => {
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page+1}&include_adult=false`)
             .then(res => res.json())
             .then(data => this.setState({SearchResults: data}))
-
+            this.setState({page: this.state.page +1})
+            // zrobić blokade na przyciskach przy stronie nr 1
       }
+
+      handlePrevPage = () => {
+          fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page-1}&include_adult=false`)
+          .then(res => res.json())
+          .then(data => this.setState({SearchResults: data}))
+          this.setState({page: this.state.page -1})
+    }
 
     render() {
         const { SearchResults } = this.state;
@@ -37,11 +45,10 @@ import "react-circular-progressbar/dist/styles.css";
         return (
             <React.Fragment>
                 <h1>Your Search Results</h1>
-                <h6> page: {this.state.page}</h6>
-                <button className="show-more" onClick={this.handleClick}>
-                    Show more
-                </button>
+                
+                <ControlBar handleNextPage={this.handleNextPage}  handlePrevPage={this.handlePrevPage} page={this.state.page}/>
                 <div className="search-result-box">
+                    
                 
                     {console.log(SearchResults)}
                     {SearchResults.results.map(item => (
@@ -68,6 +75,7 @@ import "react-circular-progressbar/dist/styles.css";
                     )
                     )}
                 </div>
+                <ControlBar handleNextPage={this.handleNextPage}  handlePrevPage={this.handlePrevPage} page={this.state.page}/>
             </React.Fragment>
             
         )

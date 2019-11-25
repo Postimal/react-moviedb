@@ -1,7 +1,6 @@
 @import '../../styles/variables';
 
-h1,h6 {color:#ddd; text-align:center; text-transform:uppercase;font-family: $primary-font;}
-.show-more {position:fixed; top: 70vh;writing-mode: vertical-lr;font-family: $primary-font;transform: rotate(180deg);text-transform:uppercase;padding:9px 6px; border-radius:7px; background:#30b21a; opacity:0.8}
+
 .search-result-box {
     margin: 3vw;
     max-width: 100%;
