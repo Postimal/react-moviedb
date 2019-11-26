@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Spinner from '../Spinner/Spinner';
 import { CircularProgressbar } from "react-circular-progressbar";
+import { Link } from "react-router-dom";
 import ControlBar from './ControlBar/ControlBar';
 import './SearchResults.scss';
 import "react-circular-progressbar/dist/styles.css";
@@ -63,8 +64,10 @@ import "react-circular-progressbar/dist/styles.css";
                                      (<p className="info-inner-date">2000</p>)}
                                      User Score<div className="info-inner-voting"><CircularProgressbar  value={`${item.vote_average}`*10} text={`${item.vote_average}`* 10 + '%'}/></div>
                                     <button>
-                                        <a href={`https://www.themoviedb.org/movie/${item.id}?language=en-US`}>moviedb</a>
+                                        {/* <a href={`https://www.themoviedb.org/movie/${item.id}?language=en-US`}>moviedb</a> */}
+                                        <Link to={`/details/movie/${item.id}`}>More</Link>
                                     </button>
+                                   
                                 </div>
                             </div>
                         </div>  

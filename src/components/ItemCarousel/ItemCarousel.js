@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import "./ItemCarousel.scss";
 
 class ItemCarousel extends Component {
@@ -20,10 +22,13 @@ class ItemCarousel extends Component {
   render() {
     const config = this.props.MDBConfig;
     const items = this.props.items;
+    const genres = this.props.genres;
 
     if (
+      genres === undefined ||
       items === undefined ||
       config === undefined ||
+      genres.length === 0 ||
       items.length === 0 ||
       config.length === 0
     ) {
@@ -37,7 +42,7 @@ class ItemCarousel extends Component {
             {/* carousel item */}
             <div className="swiper-wrapper">
               {this.props.items.map((movie, i) => (
-                <div key={movie.id} className="swiper-slide">
+                <Link key={movie.id} to={`/details/movie/${movie.id}`} className="swiper-slide">
                   <img
                     className="swiper-slide__image"
                     src={`${
@@ -59,7 +64,7 @@ class ItemCarousel extends Component {
                     </svg>
                     {movie.vote_average}
                   </p>
-                </div>
+                </Link>
               ))}
             </div>
 

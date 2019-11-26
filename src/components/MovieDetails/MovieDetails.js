@@ -10,8 +10,8 @@ import './MovieDetails.scss';
         comments: [
           {name: "John Connor", comment: "Very cool, action till the end!!!", id: 'Nov 26 2019 11:49:50'},
           {name: "anonim", comment: "For me, strong 7/10. Good for lazy sunday", id:'Nov 24 2019 10:19:00'},
-          // {name: "Kiepson", comment: "Świetne kino, szczerze polecam", id: 'Nov 24 2019 09:49:30'},
-          // {name: "Jamnik", comment: "Obsada świetna, film natomiast przeciętny ale można oglądnąć ;) ", id:'Nov 22 2019 05:39:00'},
+          {name: "Kiepson", comment: "Świetne kino, szczerze polecam", id: 'Nov 24 2019 09:49:30'},
+          {name: "Jamnik", comment: "Obsada świetna, film natomiast przeciętny ale można oglądnąć ;) ", id:'Nov 22 2019 05:39:00'},
           // {name: "Mietek", comment: "Bardzo słabo zamiast się śmiać po prostu zasnąłem...", id: 'Nov 24 2019 11:49:50'},
           // {name: "anonim", comment: "A mi się film podoba, dziwny humor trochę abstrakcyjny", id:'Nov 24 2019 10:19:00'}
         ]

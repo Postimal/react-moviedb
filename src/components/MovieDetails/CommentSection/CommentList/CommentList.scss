@@ -11,10 +11,11 @@
 
 
 @media only screen and (max-width: 600px) {
-    img {
-        max-width: 40px;
-    }
     .comment-list-container {
         font-size: 15px;
+
+        &__avatar {
+            max-width: 40px;
+        }
     }
 }
