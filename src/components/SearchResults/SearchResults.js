@@ -25,7 +25,6 @@ import "react-circular-progressbar/dist/styles.css";
             .then(res => res.json())
             .then(data => this.setState({SearchResults: data}))
             this.setState({page: this.state.page +1})
-            // zrobić blokade na przyciskach przy stronie nr 1
       }
 
       handlePrevPage = () => {
@@ -45,12 +44,9 @@ import "react-circular-progressbar/dist/styles.css";
         return (
             <React.Fragment>
                 <h1>Your Search Results</h1>
-                
                 <ControlBar handleNextPage={this.handleNextPage}  handlePrevPage={this.handlePrevPage} page={this.state.page}/>
                 <div className="search-result-box">
-                    
-                
-                    {console.log(SearchResults)}
+
                     {SearchResults.results.map(item => (
                         <div key={item.id} className="movie-container">
                             <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2/${item.poster_path? item.poster_path: 'oJb0ubHTWd3fMPYBblu9WQr8io1.jpg'}`} alt="movie poster"/>

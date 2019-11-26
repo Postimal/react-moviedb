@@ -62,7 +62,6 @@ class Home extends Component {
 
   render() {
     const { isLoading } = this.state;
-    // console.log(this.state.movieGenres);
 
     // Initiates carousels
     (() => {

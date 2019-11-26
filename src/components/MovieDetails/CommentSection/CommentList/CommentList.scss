@@ -1,0 +1,20 @@
+@import '../../../../styles/variables';
+
+.comment-list-container {
+    display: flex;
+    align-items: flex-start;
+    padding:10px;
+    &__comment{
+        color: aqua;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    img {
+        max-width: 40px;
+    }
+    .comment-list-container {
+        font-size: 15px;
+    }
+}

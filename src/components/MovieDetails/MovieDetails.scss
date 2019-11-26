@@ -3,3 +3,34 @@
 div {
     color:#fff;
 }
+
+.movie-box {
+    height: 75vh;
+    width: 100%;
+    font-family: $primary-font;
+
+    &-info {
+        padding: 45vh 0 0 33px;
+    }
+}
+
+.movie-description {
+    margin: 15px auto;
+    padding: 20px;
+    background: $tertiary-color;
+    border-radius: 10px;
+    border: 2px solid rgba(219, 69, 69, 0.40);
+    font-family: $primary-font;
+
+    h4 {
+        margin: 0 0 10px 0;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .movie-description {
+        margin: 5px auto;
+        padding: 7px;
+    }
+}
