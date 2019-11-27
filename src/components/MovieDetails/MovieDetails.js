@@ -23,6 +23,9 @@ import './MovieDetails.scss';
        fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=12a5356516535d4d67654a936a088c1b&language=en-US`)
        .then(res => res.json())
        .then(data => this.setState({movieData: data, isLoading:false}))
+
+    //    (`https://api.themoviedb.org/3/movie/${id}/credits?api_key=12a5356516535d4d67654a936a088c1b&language=en-US`);
+    //   (`https://api.themoviedb.org/3/movie/${id}/videos?api_key=12a5356516535d4d67654a936a088c1b&language=en-US`);
      }
 
     //  funkcja dodajca komentarz, do przekazania w propsach do comment section

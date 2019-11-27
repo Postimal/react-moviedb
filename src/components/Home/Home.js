@@ -12,7 +12,9 @@ class Home extends Component {
     top_rated: [],
     movieGenres: [],
     MDBConfig: [],
-    isLoading: false
+    isLoading: false,
+    guest_session_id: '',
+    request_token: ''
   };
 
   componentDidMount() {
