@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import logo from './cinema-clapboard.png';
 import SearchForm from '../SearchForm/SearchForm'
@@ -6,8 +6,8 @@ import SearchForm from '../SearchForm/SearchForm'
 import './Navigation.scss';
 
 
- class Navigation extends Component {
-    render() {
+  const Navigation = () => {
+   
         return (
             <div className="nav-panel">
                 <div className="logo">
@@ -26,9 +26,9 @@ import './Navigation.scss';
                     </button>
                     </NavLink>
 
-                    <NavLink to={'/log-in'} activeClassName="active">
+                    <NavLink to={'/profile'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
-                        LOGIN
+                        USER
                     </button>
                     </NavLink>
                     <NavLink to={'/discover'} activeClassName="active">
@@ -39,7 +39,6 @@ import './Navigation.scss';
                 </div>
             </div>
         )
-    }
 }
 
 export default Navigation

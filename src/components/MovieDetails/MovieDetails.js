@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import CommentSection from './CommentSection/CommentSection';
+import MovieCast from './MovieCast/MovieCast';
 import './MovieDetails.scss';
 
  class MovieDetails extends Component {
     state = {
         movieData: null,
+        creditsData: null,
+        videos: null,
         isLoading: false,
         // przykładowo pobieramy komentarze z bazy danych i wrzucamy je do state 
         comments: [
@@ -20,13 +23,20 @@ import './MovieDetails.scss';
 
     componentDidMount() {
         this.setState({isLoading: true})
-       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=12a5356516535d4d67654a936a088c1b&language=en-US`)
+       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${this.props.apiOpener}&language=en-US`)
        .then(res => res.json())
-       .then(data => this.setState({movieData: data, isLoading:false}))
+       .then(data => this.setState({movieData: data}))
+       
+       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${this.props.apiOpener}&language=en-US`)
+        .then (res => res.json())
+        .then (data => this.setState({creditsData: data}))
 
-    //    (`https://api.themoviedb.org/3/movie/${id}/credits?api_key=12a5356516535d4d67654a936a088c1b&language=en-US`);
-    //   (`https://api.themoviedb.org/3/movie/${id}/videos?api_key=12a5356516535d4d67654a936a088c1b&language=en-US`);
-     }
+       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/videos?api_key=${this.props.apiOpener}&language=en-US`)
+        .then( res => res.json())
+        .then(data => this.setState({videos: data, isLoading:false}))
+       
+    }
+
 
     //  funkcja dodajca komentarz, do przekazania w propsach do comment section
     addComment = comment => {
@@ -40,9 +50,11 @@ import './MovieDetails.scss';
     render() {
 
         const movie = this.state.movieData;
-        console.log(movie)
+        const credits = this.state.creditsData;
+        const videos = this.state.videos;
+        // console.log(movie)
 
-        if (!movie) {
+        if (!movie || !credits || !videos) {
             return <h1>propsy ida w doł</h1>;
           }
         return (
@@ -76,6 +88,9 @@ import './MovieDetails.scss';
               <div className="movie-description">
                 <h4>Overview</h4>
                 {movie.overview}
+              </div>
+              <div className="movie-cast">
+                <MovieCast cast={this.state.creditsData.cast}/>
               </div>
               <CommentSection  
                 comments={this.state.comments}

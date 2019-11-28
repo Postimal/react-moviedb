@@ -1,0 +1,12 @@
+.person-container {
+  &__character {
+      color: #bbb;
+  }
+  &__separator {
+      color: #ddd;
+      text-align: center;
+      margin-right: 20px;
+      font-size: 14px;
+      margin: 0;
+  }
+}

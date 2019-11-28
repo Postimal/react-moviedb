@@ -13,55 +13,54 @@ class Home extends Component {
     movieGenres: [],
     MDBConfig: [],
     isLoading: false,
-    guest_session_id: '',
-    request_token: ''
   };
 
   componentDidMount() {
     this.setState({ isLoading: true });
     fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.props.apiOpener}&language=en-US&page=1`
     )
       .then(res => res.json())
       .then(moviesUpcoming => this.setState({ moviesUpcoming }))
       .catch(err => console.log(err));
 
     fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${this.props.apiOpener}&language=en-US&page=1`
     )
       .then(res => res.json())
       .then(popular => this.setState({ popular }))
       .catch(err => console.log(err));
 
     fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiOpener}&language=en-US&page=1`
     )
       .then(res => res.json())
       .then(now_playing => this.setState({ now_playing }))
       .catch(err => console.log(err));
 
     fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.props.apiOpener}&language=en-US&page=1`
     )
       .then(res => res.json())
       .then(top_rated => this.setState({ top_rated }))
       .catch(err => console.log(err));
 
     fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=12a5356516535d4d67654a936a088c1b`
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.props.apiOpener}`
     )
       .then(res => res.json())
       .then(movieGenres => this.setState({ movieGenres }))
       .catch(err => console.log(err));
 
     fetch(
-      `https://api.themoviedb.org/3/configuration?api_key=12a5356516535d4d67654a936a088c1b`
+      `https://api.themoviedb.org/3/configuration?api_key=${this.props.apiOpener}`
     )
       .then(res => res.json())
       .then(MDBConfig => this.setState({ MDBConfig, isLoading: false }))
       .catch(err => console.log(err));
   }
 
+  
   render() {
     const { isLoading } = this.state;
 

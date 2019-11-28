@@ -21,7 +21,7 @@ class UserLogIn extends Component {
 
     render() {
         console.log(this.state.requestToken.request_token,this.state.guestSession.guest_session_id);
-        console.log(this.props.getTokenAndID)
+        console.log(this.props.getToken, this.props.getGuestSessionID)
         
         if (!this.state.requestToken) {
             
@@ -33,11 +33,14 @@ class UserLogIn extends Component {
                 <div className="user-log-in-container">
                     <h2>Log In</h2>
                     <a href={`https://www.themoviedb.org/authenticate/${this.state.requestToken.request_token}?redirect_to=http://localhost:3000/profile/approved`}>
-                        <button className="user-log-in-container-content__button">Log In</button>
+                        <button className="user-log-in-container-content__button"
+                            onClick={() => this.props.getToken(this.state.requestToken.request_token)}>
+                            Log In
+                        </button>
                     </a>
                     <Link to="/profile/guest">
                         <button className="user-log-in-container__button" 
-                            onClick={() => this.props.getTokenAndID(this.state.guestSession.guest_session_id,this.state.requestToken.request_token)}>
+                            onClick={() => this.props.getGuestSessionID(this.state.guestSession.guest_session_id)}>
                             Browse as Guest
                         </button>
                     </Link>

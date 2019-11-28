@@ -1,0 +1,13 @@
+@import '../../../styles/variables';
+
+.cast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 160px);
+    grid-gap: 1rem;
+    justify-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    font-family: $primary-font;
+    background: $primary-color;
+    border-radius: 15px;
+}
