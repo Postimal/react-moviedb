@@ -15,49 +15,42 @@ class Home extends Component {
     isLoading: false,
   };
 
+
   componentDidMount() {
-    this.setState({ isLoading: true });
-    fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${this.props.apiOpener}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(moviesUpcoming => this.setState({ moviesUpcoming }))
-      .catch(err => console.log(err));
+    this.setState({isLoading: true})
+    Promise.all([
+                fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+                fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+                fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+                fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+                fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.props.apiOpener}`),
+                fetch(`https://api.themoviedb.org/3/configuration?api_key=${this.props.apiOpener}`)
+                ])
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${this.props.apiOpener}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(popular => this.setState({ popular }))
-      .catch(err => console.log(err));
+              .then(([res1, res2, res3, res4, res5, res6]) => {
+                return Promise.all([res1.json(),res2.json(),res3.json(),res4.json(),res5.json(),res6.json()])
+              })
+              .then(([res1,res2,res3,res4,res5,res6]) => {
+                this.setState({
+                  moviesUpcoming: res1,
+                  popular: res2,
+                  now_playing: res3,
+                  top_rated: res4,
+                  movieGenres: res5,
+                  MDBConfig: res6,
+                })
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+}
 
-    fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiOpener}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(now_playing => this.setState({ now_playing }))
-      .catch(err => console.log(err));
-
-    fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.props.apiOpener}&language=en-US&page=1`
-    )
-      .then(res => res.json())
-      .then(top_rated => this.setState({ top_rated }))
-      .catch(err => console.log(err));
-
-    fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.props.apiOpener}`
-    )
-      .then(res => res.json())
-      .then(movieGenres => this.setState({ movieGenres }))
-      .catch(err => console.log(err));
-
-    fetch(
-      `https://api.themoviedb.org/3/configuration?api_key=${this.props.apiOpener}`
-    )
-      .then(res => res.json())
-      .then(MDBConfig => this.setState({ MDBConfig, isLoading: false }))
-      .catch(err => console.log(err));
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.isLoading) {
+      setTimeout(() => { 
+        this.setState(() => ({isLoading: false}))
+      }, 800);
+    }
   }
 
   
@@ -124,6 +117,7 @@ class Home extends Component {
         />
       </div>
     );
+
 
     if (isLoading) {
       return <Spinner />;

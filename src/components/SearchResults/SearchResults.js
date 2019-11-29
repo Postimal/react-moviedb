@@ -13,13 +13,20 @@ import "react-circular-progressbar/dist/styles.css";
          isLoading: false,
      }
 
-
      componentDidMount() {
          this.setState({isLoading: true})
         fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
         .then(res => res.json())
         .then(data => this.setState({SearchResults: data, isLoading:false}))
       }
+
+      componentDidUpdate(prevProps, prevState) {
+        if(prevProps.match.params.path !== this.props.match.params.path) 
+            this.setState({isLoading: true})
+            fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
+            .then(res => res.json())
+            .then(data => this.setState({SearchResults: data, isLoading:false}))
+     }
 
       handleNextPage = () => {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page+1}&include_adult=false`)

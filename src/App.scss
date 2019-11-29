@@ -1,5 +1,8 @@
+@import "./styles/variables";
+
 body {
     background-color: #000;
+    font-family: $primary-font;
 }
 .app {
     color:red;

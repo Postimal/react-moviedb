@@ -5,7 +5,7 @@ import "./ItemCarousel.scss";
 
 class ItemCarousel extends Component {
   handleGenres = genres => {
-    // Cecks item's genre ids, compares them to genre list ids and returns genre names in a paragraph
+    // Sprawdza id genre itemow, porownuje do listy genre id i zwraca nazwy genre w p
     if (this.props.genres) {
       let genresArr = this.props.genres.filter(genre =>
         genre.id === genres[0] || genre.id === genres[1] ? genre.name : null

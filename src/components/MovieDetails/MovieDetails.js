@@ -22,20 +22,28 @@ import './MovieDetails.scss';
     }
 
     componentDidMount() {
-        this.setState({isLoading: true})
-       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${this.props.apiOpener}&language=en-US`)
-       .then(res => res.json())
-       .then(data => this.setState({movieData: data}))
-       
-       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${this.props.apiOpener}&language=en-US`)
-        .then (res => res.json())
-        .then (data => this.setState({creditsData: data}))
-
-       fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/videos?api_key=${this.props.apiOpener}&language=en-US`)
-        .then( res => res.json())
-        .then(data => this.setState({videos: data, isLoading:false}))
-       
-    }
+      this.setState({isLoading: true})
+      Promise.all([
+                  fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=${this.props.apiOpener}&language=en-US`),
+                  fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${this.props.apiOpener}&language=en-US`),
+                  fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/videos?api_key=${this.props.apiOpener}&language=en-US`)
+                  ])
+                  
+                .then(([res1, res2, res3]) => {
+                  return Promise.all([res1.json(),res2.json(),res3.json()])
+                })
+                .then(([res1,res2,res3]) => {
+                  this.setState({
+                    movieData: res1,
+                    creditsData: res2,
+                    videos: res3,
+                    isLoading:false
+                  })
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+  }
 
 
     //  funkcja dodajca komentarz, do przekazania w propsach do comment section
