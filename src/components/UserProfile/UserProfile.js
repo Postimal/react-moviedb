@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Spinner from './../Spinner/Spinner';
 import './UserProfile.scss'
 
  class UserProfile extends Component {
     state = {
-        ratedMovies: [],
-        ratedTV:[],
-        ratedTVEpisodes: []
+        ratedMovies: null,
+        ratedTV: null,
+        ratedTVEpisodes: null
     }
 
     // zapytanie do userGuest session
@@ -36,12 +37,39 @@ import './UserProfile.scss'
 
     render() {
 
-        if (!this.state.ratedTVEpisodes) {
-            
-            return <h1>propsy ida w doł</h1>;
+        if (this.state.ratedTVEpisodes === null || this.state.ratedTV === null || this.state.ratedMovies === null ) {
+            return <Spinner />;
           }
         return (
-             this.state.ratedMovies.results === undefined ? (<div> ładowanko </div>) : (<div> puste tabele </div>)
+            //  this.state.ratedMovies.results === undefined ? 
+            //  (<div> ładowanko </div>) 
+            //  : 
+             (<div className='user-rated-item-container'>
+               <div className='user-rated-item-container__movies'>
+                 {this.state.ratedMovies.results.map(item => (
+                   <div key={item.id} className="rated-movie">
+                     {item.title | item.vote_average}
+                   </div>
+                 )
+                 )}
+               </div>
+               <div className='user-rated-item-container__tv'>
+                  {this.state.ratedTV.results.map(item => (
+                      <div key={item.id} className="rated-movie">
+                        {item.title | item.vote_average}
+                      </div>
+                    )
+                    )}
+               </div>
+               <div className='user-rated-item-container__tvepisodes'>
+                  {this.state.ratedTVEpisodes.results.map(item => (
+                      <div key={item.id} className="rated-movie">
+                        {item.title | item.vote_average}
+                      </div>
+                    )
+                    )}
+               </div>
+             </div>)
         
         )
     }

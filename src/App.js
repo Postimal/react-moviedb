@@ -45,7 +45,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path='/search/:id' component={SearchResults}/>
-          <Route path='/discover' component={Discover}/>
+          <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path="/log-in" render={(props) => <UserLogIn {...props} getToken={this.getToken} getGuestSessionID={this.getGuestSessionID}/>} />
           <Route path="/profile/:status" render={(props) => <UserProfile {...props} apiOpener={this.state.apiOpener} sessionID={this.state.guest_session_id} />}/>

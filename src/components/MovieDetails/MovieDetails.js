@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Spinner from './../Spinner/Spinner';
 import CommentSection from './CommentSection/CommentSection';
 import MovieCast from './MovieCast/MovieCast';
 import './MovieDetails.scss';
@@ -60,10 +61,9 @@ import './MovieDetails.scss';
         const movie = this.state.movieData;
         const credits = this.state.creditsData;
         const videos = this.state.videos;
-        // console.log(movie)
 
         if (!movie || !credits || !videos) {
-            return <h1>propsy ida w doł</h1>;
+          return <Spinner />;
           }
         return (
             <React.Fragment>
