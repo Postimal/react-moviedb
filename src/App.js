@@ -7,6 +7,7 @@ import MovieDetails from './components/MovieDetails/MovieDetails';
 import UserLogIn from './components/UserLogIn/UserLogIn';
 import UserProfile from './components/UserProfile/UserProfile';
 import Discover from './components/Discover/Discover';
+import Footer from './components/Footer/Footer';
 import NoMatch from './components/NoMatch/NoMatch';
 
 
@@ -56,6 +57,7 @@ class App extends Component {
 
           <Route component={NoMatch}/>
           </Switch>
+          <Footer />
       </BrowserRouter>
     );
   }

@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
+import './Footer.scss';
 
-export default class Footer extends Component {
-    render() {
+const Footer = () => {
+  
         return (
-            <div>
-                <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </div>
+            <footer className="footer-container">
+                Michał Postek, Copyright &copy; <span className="text-secondary">2019</span>
+            </footer>
         )
-    }
+    
 }
+
+export default Footer;

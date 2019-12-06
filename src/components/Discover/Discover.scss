@@ -1,3 +1,66 @@
-div,h1 {
-    color: #fff
+@import './../../styles/variables';
+
+.discover-container {
+    background: $tertiary-color;
+    h2 {
+        text-align: center;
+    }
+
+    &-header {
+        display: flex;
+        flex-direction: column;
+        max-width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(150deg, rgba(40, 207, 219, 0.142) 30%,rgba(52, 238, 238, 0.342)62%, rgba(13, 150, 204, 0.142) 92%);      
+        border-radius: 20px;
+
+        form {
+            margin: 0 auto
+        }
+
+        select,input {
+                background-color: lighten($tertiary-color,20);
+                border: none;
+                border-radius: 5px;
+                color: $primary-font-color;
+                padding: 0.3rem;
+        }
+
+        button {
+            height: 32px;
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 10px;
+            color:rgba(219, 69, 69, 0.9);
+            background:#000;
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            letter-spacing: 6.5px;
+            cursor: pointer;
+        }
+
+        &__filters {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: start;
+            height: 120px;
+        }
+    }
+
+    &-body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 160px);
+        grid-gap: 4rem;
+        justify-items: center;
+        justify-content: center;
+        padding-top: 50px;
+        border-radius: 15px;
+
+        a {
+            text-decoration: none;
+        }
+    }
 }

@@ -43,6 +43,8 @@ class Home extends Component {
               .catch((error) => {
                 console.log(error);
               });
+              
+    document.title = "Movie Database"
 }
 
   componentDidUpdate(prevProps, prevState) {

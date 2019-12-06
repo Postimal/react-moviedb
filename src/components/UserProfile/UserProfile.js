@@ -13,9 +13,9 @@ import './UserProfile.scss'
     componentDidMount() {
         this.setState({isLoading: true})
         Promise.all([
-                    fetch(`https://api.themoviedb.org/3/guest_session/${this.props.sessionID}/rated/movies?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&sort_by=created_at.asc`),
-                    fetch(`https://api.themoviedb.org/3/guest_session/${this.props.sessionID}/rated/tv?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&sort_by=created_at.asc`),
-                    fetch(`https://api.themoviedb.org/3/guest_session/${this.props.sessionID}/rated/tv?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&sort_by=created_at.asc`)
+                    fetch(`https://api.themoviedb.org/3/guest_session/${this.props.sessionID}/rated/movies?api_key=${this.props.apiOpener}&language=en-US&sort_by=created_at.asc`),
+                    fetch(`https://api.themoviedb.org/3/guest_session/${this.props.sessionID}/rated/tv?api_key=${this.props.apiOpener}&language=en-US&sort_by=created_at.asc`),
+                    fetch(`https://api.themoviedb.org/3/guest_session/${this.props.sessionID}/rated/tv?api_key=${this.props.apiOpener}&language=en-US&sort_by=created_at.asc`)
                     ])
   
                   .then(([res1, res2, res3]) => {
@@ -41,10 +41,7 @@ import './UserProfile.scss'
             return <Spinner />;
           }
         return (
-            //  this.state.ratedMovies.results === undefined ? 
-            //  (<div> ładowanko </div>) 
-            //  : 
-             (<div className='user-rated-item-container'>
+             <div className='user-rated-item-container'>
                <div className='user-rated-item-container__movies'>
                  {this.state.ratedMovies.results.map(item => (
                    <div key={item.id} className="rated-movie">
@@ -69,7 +66,7 @@ import './UserProfile.scss'
                     )
                     )}
                </div>
-             </div>)
+             </div>
         
         )
     }

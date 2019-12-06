@@ -34,7 +34,6 @@
 
   .main-nav-bottom-section__button {
     height: 32px;
-    // border: 2px solid rgba(219, 69, 69, 0.5);
     border-radius: 10px;
     margin: 10px;
     color: rgba(219, 69, 69, 0.9);
@@ -42,5 +41,57 @@
     font-family: $primary-font;
     font-weight: 700;
     cursor: pointer;
+  }
+}
+
+
+@media only screen and (max-width: 498px) {
+  .nav-search-form {
+    margin-right: 60px;
+  }
+
+  .nav-panel-control-list {
+    position: absolute;
+    right: -100px;
+    top: 60px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    transition: 300ms;
+
+    .main-nav-bottom-section__button {
+      height: 24px;
+      opacity: 0.5;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .nav-panel {
+    justify-content: space-around;
+
+    a {
+      text-align: center;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 25px;
+      right: 40px;
+      transform: translateX(50%) rotate(45deg);
+      height: 20px;
+      width: 20px;
+      z-index: 2;
+      background: linear-gradient(135deg,#000 24%, #fff 28%,#000 32%,#000 49%, #fff 53%,#000 57%,#000 74%, #fff 78%,#000 82%);
+      border: 2px solid rgba(219, 69, 69, 0.81);
+      border-radius: 5px;
+    }
+
+    &:hover .nav-panel-control-list  {
+      right: -10px;
+    }
   }
 }

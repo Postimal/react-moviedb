@@ -89,8 +89,8 @@ import './MovieDetails.scss';
                       {" "}
                     | {movie.vote_average} Rating
                     </p>
-                    <p className="movie-boc-info__runtime">{movie.runtime} min</p>
-                    <p className="movie-box-info__production">{movie.production_companies[0].name}</p>
+                    <p className="movie-box-info__runtime">{movie.runtime} min</p>
+                    <p className="movie-box-info__production">{movie.production_companies[0]? movie.production_companies[0].name : null}</p>
                 </div>
               </div>
               <div className="movie-description">
