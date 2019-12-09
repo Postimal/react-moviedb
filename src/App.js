@@ -7,7 +7,6 @@ import MovieDetails from './components/MovieDetails/MovieDetails';
 import UserLogIn from './components/UserLogIn/UserLogIn';
 import UserProfile from './components/UserProfile/UserProfile';
 import Discover from './components/Discover/Discover';
-import Footer from './components/Footer/Footer';
 import NoMatch from './components/NoMatch/NoMatch';
 
 
@@ -16,7 +15,8 @@ class App extends Component {
     apiOpener: '12a5356516535d4d67654a936a088c1b',
     logInStatus: "",
     guest_session_id: '',
-    request_token: ''
+    request_token: '',
+    searchParam:'movie',
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -38,14 +38,20 @@ class App extends Component {
       })
   }
 
+  getSearchParam = param => {
+    this.setState({
+      searchParam: param
+    })
+  }
+
 
   render() {
     return (
       <BrowserRouter>
-        <Navigation/>
+        <Navigation getSearchParam={this.getSearchParam}/>
         <Switch>
           <Route exact path='/' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
-          <Route path='/search/:id' component={SearchResults}/>
+          <Route path='/search/:id' render={(props) => <SearchResults {...props} searchParam={this.state.searchParam} />}/>
           <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path="/log-in" render={(props) => <UserLogIn {...props} getToken={this.getToken} getGuestSessionID={this.getGuestSessionID}/>} />
@@ -57,7 +63,6 @@ class App extends Component {
 
           <Route component={NoMatch}/>
           </Switch>
-          <Footer />
       </BrowserRouter>
     );
   }

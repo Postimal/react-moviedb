@@ -1,6 +1,57 @@
 @import './../../styles/variables';
 
 .footer-container {
-    height: 200px;
-    background: $tertiary-color;
+    padding-top: 20px;
+    background:linear-gradient(150deg, rgba(40, 207, 219, 0.142) 30%, rgba(52, 238, 238, 0.342) 62%, rgba(13, 150, 204, 0.142) 92%);
+
+    &-header{
+        width: 90vw;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+
+        &__1column{
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            .column_link{
+                color: inherit;
+            }
+        }
+      
+
+        &__2column{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style: none;
+                a,
+                a:active,
+                a:hover,
+                a:visited {
+                    text-decoration: none;
+                   
+                    svg{
+                    width: 30px;
+                    padding: 5px;
+                    background: rgba(13, 150, 204, 0.2);
+                    border-radius: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-bottom {
+        text-align: center;
+        padding: 20px 0 20px 0;
+    }
 }

@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import logo from './cinema-clapboard.png';
 import SearchForm from '../SearchForm/SearchForm'
-
 import './Navigation.scss';
 
 
-  const Navigation = () => {
-   
+class Navigation extends Component {
+    myRef = React.createRef();
+    menuRef = React.createRef();
+    render() {
+       
+        const toggleMenuHandler = () => {
+            this.myRef.current.classList.toggle('open');
+            this.menuRef.current.classList.toggle('open');
+        }
+
         return (
-            <div className="nav-panel">
+            <header className="nav-panel">
                 <div className="logo">
                     <Link to={'/profile/guest'}>
                         <img 
@@ -18,8 +25,8 @@ import './Navigation.scss';
                         />
                     </Link>
                 </div>
-                <SearchForm/>
-                <div className="nav-panel-control-list">
+                <SearchForm getParams={this.props.getSearchParam}/>
+                <div  onClick={this.onLinkHandler} className="nav-panel-control-list" ref={this.myRef}>
                     <NavLink  to={'/'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         HOME
@@ -37,8 +44,12 @@ import './Navigation.scss';
                     </button>
                     </NavLink>
                 </div>
-            </div>
+                <div className="nav-mobile">
+                    <div  onClick={toggleMenuHandler} ref={this.menuRef} className="nav-mobile-trigger"></div>
+                </div>
+            </header>
         )
+    }    
 }
 
 export default Navigation

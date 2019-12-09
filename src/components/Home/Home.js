@@ -3,6 +3,7 @@ import Swiper from "swiper";
 import HomeHeader from "../HomeHeader/HomeHeader";
 import ItemCarousel from "../ItemCarousel/ItemCarousel";
 import Spinner from "../Spinner/Spinner";
+import Footer from './../Footer/Footer';
 
 class Home extends Component {
   state = {
@@ -132,6 +133,7 @@ class Home extends Component {
           items={this.state.now_playing.results}
         />
         {movie}
+        <Footer />
       </React.Fragment>
     );
   }

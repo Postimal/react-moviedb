@@ -20,13 +20,17 @@ import "react-circular-progressbar/dist/styles.css";
         .then(data => this.setState({SearchResults: data, isLoading:false}))
       }
 
-      componentDidUpdate(prevProps, prevState) {
-        if(prevProps.match.params.path !== this.props.match.params.path) 
-            this.setState({isLoading: true})
-            fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
-            .then(res => res.json())
-            .then(data => this.setState({SearchResults: data, isLoading:false}))
-     }
+
+      //zrobiłem funkcje w app.js dałem ja do komponentu navi > searchpanel i potem dałem ten wynik do tego koponentu, ale to chyba bez sensu, chyba ze dam nowy button do fetchowaniw danych
+    //   componentDidUpdate(prevProps, prevState) {
+    //     if(`:${prevState.searchParam}` !== this.props.match.params.id) 
+    //         this.setState({isLoading: true})
+    //         fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
+    //         .then(res => res.json())
+    //         .then(data => this.setState({SearchResults: data, isLoading:false}))
+    //         console.log(`:${prevState.searchParam}`,this.props.match.params.id)
+
+    //  }
 
       handleNextPage = () => {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page+1}&include_adult=false`)
@@ -41,6 +45,8 @@ import "react-circular-progressbar/dist/styles.css";
           .then(data => this.setState({SearchResults: data}))
           this.setState({page: this.state.page -1})
     }
+
+
 
     render() {
         const { SearchResults } = this.state;
