@@ -43,26 +43,37 @@ import './UserProfile.scss'
         return (
              <div className='user-rated-item-container'>
                <div className='user-rated-item-container__movies'>
-                 {this.state.ratedMovies.results.map(item => (
-                   <div key={item.id} className="rated-movie">
-                     {item.title | item.vote_average}
-                   </div>
+                 {this.state.ratedMovies.results.length === 0 ? 
+                    (<h1>no movies found</h1>)
+                    :
+                    (this.state.ratedMovies.results.map(item => (
+                    <div key={item.id} className="rated-movie">
+                      {item.title | item.vote_average}
+                    </div>
+                    )
                  )
                  )}
                </div>
                <div className='user-rated-item-container__tv'>
-                  {this.state.ratedTV.results.map(item => (
+                  {this.state.ratedTV.results.length === 0 ? 
+                    (<h1>no ratedTV found</h1>)
+                    :
+                    (this.state.ratedTV.results.map(item => (
                       <div key={item.id} className="rated-movie">
                         {item.title | item.vote_average}
                       </div>
                     )
-                    )}
+                  )
+                  )}
                </div>
                <div className='user-rated-item-container__tvepisodes'>
-                  {this.state.ratedTVEpisodes.results.map(item => (
+                  {this.state.ratedTVEpisodes.results.length === 0 ? 
+                      (<h1>no ratedTVEpisodes found</h1>)
+                      :
+                      (this.state.ratedTVEpisodes.results.map(item => (
                       <div key={item.id} className="rated-movie">
                         {item.title | item.vote_average}
-                      </div>
+                      </div>)
                     )
                     )}
                </div>
