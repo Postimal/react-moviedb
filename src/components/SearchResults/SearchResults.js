@@ -11,26 +11,39 @@ import "react-circular-progressbar/dist/styles.css";
          SearchResults: null,
          page:1,
          isLoading: false,
+         error: null,
+         searchParam: this.props.searchParam
      }
 
      componentDidMount() {
          this.setState({isLoading: true})
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
-        .then(res => res.json())
-        .then(data => this.setState({SearchResults: data, isLoading:false}))
+           fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
+          .then(response => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error('Something went wrong');
+            }
+          })
+          .then(data => this.setState({SearchResults: data, isLoading:false}))
+          .catch(error => this.setState({ error, isLoading: false }));
       }
 
 
       //zrobiłem funkcje w app.js dałem ja do komponentu navi > searchpanel i potem dałem ten wynik do tego koponentu, ale to chyba bez sensu, chyba ze dam nowy button do fetchowaniw danych
-    //   componentDidUpdate(prevProps, prevState) {
+    //  async componentDidUpdate(prevProps, prevState) {
     //     if(`:${prevState.searchParam}` !== this.props.match.params.id) 
     //         this.setState({isLoading: true})
-    //         fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
+    //       await  fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
     //         .then(res => res.json())
     //         .then(data => this.setState({SearchResults: data, isLoading:false}))
     //         console.log(`:${prevState.searchParam}`,this.props.match.params.id)
 
     //  }
+
+     componentWillUnmount() {
+
+     }
 
       handleNextPage = () => {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page+1}&include_adult=false`)
@@ -52,6 +65,9 @@ import "react-circular-progressbar/dist/styles.css";
         const { SearchResults } = this.state;
         
         
+        if (this.state.error) {
+            return <p>{this.state.error.message}</p>;
+          }
         if (SearchResults === null) {
             return <Spinner />
           }
