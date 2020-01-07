@@ -28,6 +28,7 @@ class HomeHeader extends Component {
       if (!sliderEl) {
         return;
       }
+      // eslint-disable-next-line
       const slider = new Swiper(sliderEl, {
         slidesPerView: 1,
         loop: true,
