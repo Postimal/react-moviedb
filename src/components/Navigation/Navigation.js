@@ -18,7 +18,7 @@ class Navigation extends Component {
         return (
             <header className="nav-panel">
                 <div className="logo">
-                    <Link to={'/profile/guest'}>
+                    <Link to={'/react-moviedb'}>
                         <img 
                         src={logo}
                         alt="logo."
@@ -27,7 +27,7 @@ class Navigation extends Component {
                 </div>
                 <SearchForm getParams={this.props.getSearchParam}/>
                 <div  onClick={this.onLinkHandler} className="nav-panel-control-list" ref={this.myRef}>
-                    <NavLink  to={'/'} activeClassName="active">
+                    <NavLink  to={'/react-moviedb'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         HOME
                     </button>

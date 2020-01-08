@@ -50,7 +50,7 @@ class App extends Component {
       <BrowserRouter>
         <Navigation getSearchParam={this.getSearchParam}/>
         <Switch>
-          <Route exact path='/' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
+          <Route exact path='/react-moviedb' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path='/search/:id' render={(props) => <SearchResults {...props} searchParam={this.state.searchParam} />}/>
           <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
           <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} />}/>

@@ -8,7 +8,7 @@ const Footer = () => {
             <footer className="footer-container">
                 <div className="footer-container-header">
                     <ul className="footer-container-header__1column">
-                        <Link className="column_link" to={'/'}>
+                        <Link className="column_link" to={'/react-moviedb'}>
                         <li>
                             HOME
                         </li>
