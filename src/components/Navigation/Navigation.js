@@ -22,6 +22,7 @@ class Navigation extends Component {
                         <img 
                         src={logo}
                         alt="logo."
+                        disabled
                         />
                     </Link>
                 </div>
@@ -32,7 +33,7 @@ class Navigation extends Component {
                         HOME
                     </button>
                     </NavLink>
-
+                    {console.log(this.props)}
                     <NavLink to={'/profile'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         USER

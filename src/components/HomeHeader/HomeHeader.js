@@ -20,7 +20,6 @@ class HomeHeader extends Component {
   render() {
     const config = this.props.MDBConfig;
     const items = this.props.items;
-    if (items) console.log(items.map(item => item.title));
 
     // Initiates carousels
     (() => {
