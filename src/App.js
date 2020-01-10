@@ -1,4 +1,5 @@
-import React, { Component } from "react";import './App.scss';
+import React, { Component } from "react";
+import './App.scss';
 import {BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Home from './components/Home/Home';
 import SearchResults from './components/SearchResults/SearchResults';
@@ -8,6 +9,7 @@ import UserLogIn from './components/UserLogIn/UserLogIn';
 import UserProfile from './components/UserProfile/UserProfile';
 import Discover from './components/Discover/Discover';
 import NoMatch from './components/NoMatch/NoMatch';
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 
 
@@ -43,21 +45,23 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Navigation />
-        <Switch>
-          <Route exact path='/react-moviedb' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
-          <Route path='/search/:id' render={(props) => <SearchResults {...props} searchParam={this.state.searchParam} />}/>
-          <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
-          <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} />}/>
-          <Route path="/log-in" render={(props) => <UserLogIn {...props} apiOpener={this.state.apiOpener} getToken={this.getToken} getGuestSessionID={this.getGuestSessionID}/>} />
-          <Route path="/profile/:status" render={(props) => <UserProfile {...props} apiOpener={this.state.apiOpener} sessionID={this.state.guest_session_id} />}/>
+        <ScrollToTop>
+          <Navigation />
+          <Switch>
+            <Route exact path='/react-moviedb' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
+            <Route path='/search/:id' render={(props) => <SearchResults {...props} searchParam={this.state.searchParam} />}/>
+            <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
+            <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} />}/>
+            <Route path="/log-in" render={(props) => <UserLogIn {...props} apiOpener={this.state.apiOpener} getToken={this.getToken} getGuestSessionID={this.getGuestSessionID}/>} />
+            <Route path="/profile/:status" render={(props) => <UserProfile {...props} apiOpener={this.state.apiOpener} sessionID={this.state.guest_session_id} />}/>
 
-          {!this.state.logInStatus  ? <Redirect from='/profile' to="/log-in" /> : <Redirect from='/profile' to='/profile/approved' /> }
-          {!this.state.logInStatus  ? <Redirect from='/profile/approved' to="/log-in" /> : <Redirect from='/log-in' to='/profile/approved' /> }
-          {!this.state.logInStatus === 'GUEST'  ? <Redirect from='/log-in' to='/profile/guest' /> : <Redirect from='/profile/guest' to="/log-in" /> }
+            {!this.state.logInStatus  ? <Redirect from='/profile' to="/log-in" /> : <Redirect from='/profile' to='/profile/approved' /> }
+            {!this.state.logInStatus  ? <Redirect from='/profile/approved' to="/log-in" /> : <Redirect from='/log-in' to='/profile/approved' /> }
+            {!this.state.logInStatus === 'GUEST'  ? <Redirect from='/log-in' to='/profile/guest' /> : <Redirect from='/profile/guest' to="/log-in" /> }
 
-          <Route component={NoMatch}/>
+            <Route component={NoMatch}/>
           </Switch>
+        </ScrollToTop>
       </BrowserRouter>
     );
   }
