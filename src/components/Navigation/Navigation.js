@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from './cinema-clapboard.png';
 import SearchForm from '../SearchForm/SearchForm'
 import './Navigation.scss';
@@ -18,22 +18,20 @@ class Navigation extends Component {
         return (
             <header className="nav-panel">
                 <div className="logo">
-                    <Link to={'/react-moviedb'}>
+                    <a href='#footer'>
                         <img 
                         src={logo}
                         alt="logo."
-                        disabled
                         />
-                    </Link>
+                    </a>
                 </div>
-                <SearchForm getParams={this.props.getSearchParam}/>
-                <div  onClick={this.onLinkHandler} className="nav-panel-control-list" ref={this.myRef}>
+                <SearchForm />
+                <div  onClick={this.onLinkHandler} onMouseDown={toggleMenuHandler} className="nav-panel-control-list" ref={this.myRef}>
                     <NavLink  to={'/react-moviedb'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         HOME
                     </button>
                     </NavLink>
-                    {console.log(this.props)}
                     <NavLink to={'/profile'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         USER

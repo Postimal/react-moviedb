@@ -1,11 +1,12 @@
 @import './../../styles/variables';
 
 .user-log {
+    position: relative;
     img {
         width: 80px;
         position: absolute;
-        left: calc(50% - 50px);
-        bottom: calc(50% - 240px);
+        left: calc(50% - 40px);
+        bottom: 30px;
         z-index: 10;
     }
 }
@@ -39,7 +40,7 @@
         align-items: center;
 
         a { 
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             &:hover button {
                 color: rgba(219, 69, 69, 1);
                 border: 2px solid rgba(219, 69, 69, 1);
@@ -62,6 +63,7 @@
     }
 
     h3 {
+        margin-top: 0;
         text-align: center;
         color: #ddd;
     }
@@ -76,10 +78,10 @@
         }
 
         img {
-            width: 140px;
+            width: 100px;
             position: absolute;
-            left: calc(50% - 70px);
-            bottom: calc(50% - 280px);
+            left: calc(50% - 50px);
+            bottom: 10px;
         }
     }
 }

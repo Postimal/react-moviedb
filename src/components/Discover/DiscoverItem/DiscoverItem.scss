@@ -25,6 +25,8 @@
       }
 
     &__title {
-        color: #ccc
+        color: #ccc;
+        max-width: 130px;
+        text-align: center;
     }
 }

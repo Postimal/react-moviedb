@@ -5,7 +5,7 @@ import './Footer.scss';
 const Footer = () => {
   
         return (
-            <footer className="footer-container">
+            <footer id="footer" className="footer-container">
                 <div className="footer-container-header">
                     <ul className="footer-container-header__1column">
                         <Link className="column_link" to={'/react-moviedb'}>

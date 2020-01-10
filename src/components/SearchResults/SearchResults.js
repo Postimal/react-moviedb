@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Spinner from '../Spinner/Spinner';
 import { CircularProgressbar } from "react-circular-progressbar";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import ControlBar from './ControlBar/ControlBar';
 import './SearchResults.scss';
 import "react-circular-progressbar/dist/styles.css";
@@ -12,8 +13,8 @@ import "react-circular-progressbar/dist/styles.css";
          page:1,
          isLoading: false,
          error: null,
-         searchParam: this.props.searchParam
      }
+
 
      componentDidMount() {
          this.setState({isLoading: true})
@@ -30,20 +31,18 @@ import "react-circular-progressbar/dist/styles.css";
       }
 
 
-      //zrobiłem funkcje w app.js dałem ja do komponentu navi > searchpanel i potem dałem ten wynik do tego koponentu, ale to chyba bez sensu, chyba ze dam nowy button do fetchowaniw danych
-    //  async componentDidUpdate(prevProps, prevState) {
-    //     if(`:${prevState.searchParam}` !== this.props.match.params.id) 
-    //         this.setState({isLoading: true})
-    //       await  fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
-    //         .then(res => res.json())
-    //         .then(data => this.setState({SearchResults: data, isLoading:false}))
-    //         console.log(`:${prevState.searchParam}`,this.props.match.params.id)
-
-    //  }
-
-     componentWillUnmount() {
-
+     async componentDidUpdate(prevProps) {
+        if(this.props.match.params.id !== prevProps.match.params.id)
+        {
+            this.setState({isLoading: true})
+            await fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page}&include_adult=false`)
+            .then(res => res.json())
+            .then(data => this.setState({SearchResults: data, page: 1, isLoading:false}))
+            console.log('updating',prevProps.match.params.id)
+        }
      }
+
+     
 
       handleNextPage = () => {
             fetch(`https://api.themoviedb.org/3/search/multi?api_key=12a5356516535d4d67654a936a088c1b&language=en-US&query=${this.props.match.params.id}&page=${this.state.page+1}&include_adult=false`)
@@ -93,10 +92,8 @@ import "react-circular-progressbar/dist/styles.css";
                                      (<p className="info-inner-date">2000</p>)}
                                      User Score<div className="info-inner-voting"><CircularProgressbar  value={`${item.vote_average}`*10} text={`${item.vote_average}`* 10 + '%'}/></div>
                                     <button>
-                                        {/* <a href={`https://www.themoviedb.org/movie/${item.id}?language=en-US`}>moviedb</a> */}
                                         <Link to={`/details/movie/${item.id}`}>More</Link>
                                     </button>
-                                   
                                 </div>
                             </div>
                         </div>  
@@ -110,4 +107,4 @@ import "react-circular-progressbar/dist/styles.css";
     }
 }
 
-export default SearchResults
+export default withRouter(SearchResults)

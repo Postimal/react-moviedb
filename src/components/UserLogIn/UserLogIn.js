@@ -10,11 +10,11 @@ class UserLogIn extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/authentication/token/new?api_key=12a5356516535d4d67654a936a088c1b`)
+        fetch(`https://api.themoviedb.org/3/authentication/token/new?api_key=${this.props.apiOpener}`)
         .then( res => res.json())
         .then ( data => this.setState({requestToken: data}))
 
-        fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=12a5356516535d4d67654a936a088c1b`)
+        fetch(`https://api.themoviedb.org/3/authentication/guest_session/new?api_key=${this.props.apiOpener}`)
         .then( res => res.json())
         .then( data => this.setState({guestSession: data}))
       }
@@ -72,7 +72,7 @@ class UserLogIn extends Component {
                     </div>
                     <div className="user-log-in-container">
                         <h2>Log In</h2>
-                        <a href={`https://www.themoviedb.org/authenticate/${this.state.requestToken.request_token}?redirect_to=http://localhost:3000/profile/approved`}>
+                        <a href={`https://www.themoviedb.org/authenticate/${this.state.requestToken.request_token}?redirect_to=https://localhost:3000/profile/approved`}>
                             <button className="user-log-in-container-content__button"
                                 onClick={() => this.props.getToken(this.state.requestToken.request_token)}>
                                 <b>Log with TheMovieDB</b>

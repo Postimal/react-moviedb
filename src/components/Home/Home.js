@@ -4,6 +4,7 @@ import HomeHeader from "../HomeHeader/HomeHeader";
 import ItemCarousel from "../ItemCarousel/ItemCarousel";
 import Spinner from "../Spinner/Spinner";
 import Footer from './../Footer/Footer';
+import ScrollToTopButton from "../ScrollToTopButton/ScrollToTopButton";
 
 class Home extends Component {
   state = {
@@ -45,7 +46,6 @@ class Home extends Component {
                 console.log(error);
               });
               
-    document.title = "Movie Database"
 }
 
   componentDidUpdate(prevProps, prevState) {
@@ -135,6 +135,7 @@ class Home extends Component {
         />
         {movie}
         <Footer />
+        <ScrollToTopButton />
       </React.Fragment>
     );
   }

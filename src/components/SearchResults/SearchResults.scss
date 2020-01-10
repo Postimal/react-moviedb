@@ -16,6 +16,10 @@
     padding: 4vw 2vw;
     display: flex;
 
+     img {
+         width: 60%;
+     }
+
         &-info {
             min-width: 40%;
             padding: 0 10px;
@@ -76,8 +80,8 @@
 @media only screen and (min-width: 300px) {
     .search-result-box{
         margin: 3vw;
+        justify-content: center;
         .movie-container {
-            padding: 8vw 2vw;
             width: 250px;
         }
     }
@@ -87,7 +91,6 @@
     .search-result-box{
         margin: 9vw;
         .movie-container {
-            padding: 8vw 2vw;
             width: 380px;
         }
     }
