@@ -52,8 +52,8 @@
 @media only screen and (max-width: 526px) {
   .nav-panel-control-list {
     position: absolute;
-    right: -100px;
-    top: 60px;
+    top: -150px;
+    right: 5px;
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@
     }
 
     .nav-panel-control-list.open {
-      right: 5px;
+      top: 60px
     }
   }
 
