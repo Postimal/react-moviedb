@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-moviedb/static/css/main.2a66db5f.chunk.css",
+    "main.css": "/react-moviedb/static/css/main.be3e3a85.chunk.css",
     "main.js": "/react-moviedb/static/js/main.e341ac15.chunk.js",
     "main.js.map": "/react-moviedb/static/js/main.e341ac15.chunk.js.map",
     "runtime-main.js": "/react-moviedb/static/js/runtime-main.b2bef974.js",
@@ -9,10 +9,10 @@
     "static/js/2.ed2bc614.chunk.js": "/react-moviedb/static/js/2.ed2bc614.chunk.js",
     "static/js/2.ed2bc614.chunk.js.map": "/react-moviedb/static/js/2.ed2bc614.chunk.js.map",
     "index.html": "/react-moviedb/index.html",
-    "precache-manifest.ac7b627aa02456d1ea7e6ac512a3f53f.js": "/react-moviedb/precache-manifest.ac7b627aa02456d1ea7e6ac512a3f53f.js",
+    "precache-manifest.caf6159483f63a71df1ab63635373226.js": "/react-moviedb/precache-manifest.caf6159483f63a71df1ab63635373226.js",
     "service-worker.js": "/react-moviedb/service-worker.js",
     "static/css/2.09ae8418.chunk.css.map": "/react-moviedb/static/css/2.09ae8418.chunk.css.map",
-    "static/css/main.2a66db5f.chunk.css.map": "/react-moviedb/static/css/main.2a66db5f.chunk.css.map",
+    "static/css/main.be3e3a85.chunk.css.map": "/react-moviedb/static/css/main.be3e3a85.chunk.css.map",
     "static/js/2.ed2bc614.chunk.js.LICENSE": "/react-moviedb/static/js/2.ed2bc614.chunk.js.LICENSE",
     "static/media/cinema-clapboard.png": "/react-moviedb/static/media/cinema-clapboard.784c6ad2.png",
     "static/media/error404.jpg": "/react-moviedb/static/media/error404.15bc6a4f.jpg",
@@ -24,7 +24,7 @@
     "static/js/runtime-main.b2bef974.js",
     "static/css/2.09ae8418.chunk.css",
     "static/js/2.ed2bc614.chunk.js",
-    "static/css/main.2a66db5f.chunk.css",
+    "static/css/main.be3e3a85.chunk.css",
     "static/js/main.e341ac15.chunk.js"
   ]
 }
