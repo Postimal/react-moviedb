@@ -1,6 +1,6 @@
 ## react-moviedb
 
-React application to browse most popular Streams, Games and Streamers.
+React application to browse most popular Movies, upcoming Movies  etc.
 It's responsive(min 360px) React Single-Page Application. Powered by The Movie DB. Build with old good React based on Statefull Components, props drilling and lifecycle methods.
 
 

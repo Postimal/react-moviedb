@@ -6,7 +6,6 @@ import './MovieCast.scss';
     
     return (
         <div className="cast-container">
-            {console.log(props)}
             {props.cast.slice(0,6).map(person => (
                 <Person key={person.id} person={person} />
             ))}
