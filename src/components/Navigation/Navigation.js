@@ -6,12 +6,12 @@ import './Navigation.scss';
 
 
 class Navigation extends Component {
-    myRef = React.createRef();
+    myNavigationPanelRef = React.createRef();
     menuRef = React.createRef();
     render() {
        
         const toggleMenuHandler = () => {
-            this.myRef.current.classList.toggle('open');
+            this.myNavigationPanelRef.current.classList.toggle('open');
             this.menuRef.current.classList.toggle('open');
         }
 
@@ -26,7 +26,7 @@ class Navigation extends Component {
                     </a>
                 </div>
                 <SearchForm />
-                <div  onClick={this.onLinkHandler} onMouseDown={toggleMenuHandler} className="nav-panel-control-list" ref={this.myRef}>
+                <div  onClick={this.onLinkHandler} onMouseDown={toggleMenuHandler} className="nav-panel-control-list" ref={this.myNavigationPanelRef}>
                     <NavLink  to={'/react-moviedb'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
                         HOME

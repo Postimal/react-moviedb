@@ -29,7 +29,7 @@ class App extends Component {
      return this.setState({logInStatus: "GUEST"})
   }
 
-  getToken = token => {
+  setToken = token => {
     this.setState({ 
       request_token: token
     })
@@ -52,7 +52,7 @@ class App extends Component {
             <Route path='/search/:id' render={(props) => <SearchResults {...props} searchParam={this.state.searchParam} />}/>
             <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
             <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} />}/>
-            <Route path="/log-in" render={(props) => <UserLogIn {...props} apiOpener={this.state.apiOpener} getToken={this.getToken} getGuestSessionID={this.getGuestSessionID}/>} />
+            <Route path="/log-in" render={(props) => <UserLogIn {...props} apiOpener={this.state.apiOpener} setToken={this.setToken} getGuestSessionID={this.getGuestSessionID}/>} />
             <Route path="/profile/:status" render={(props) => <UserProfile {...props} apiOpener={this.state.apiOpener} sessionID={this.state.guest_session_id} />}/>
 
             {!this.state.logInStatus  ? <Redirect from='/profile' to="/log-in" /> : <Redirect from='/profile' to='/profile/approved' /> }

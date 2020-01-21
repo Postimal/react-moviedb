@@ -72,9 +72,9 @@ class UserLogIn extends Component {
                     </div>
                     <div className="user-log-in-container">
                         <h2>Log In</h2>
-                        <a href={`https://www.themoviedb.org/authenticate/${this.state.requestToken.request_token}?redirect_to=https://localhost:3000/profile/approved`}>
+                        <a href={`https://www.themoviedb.org/authenticate/${this.state.requestToken.request_token}?redirect_to=https://postimal.github.io/react-moviedb`}>
                             <button className="user-log-in-container-content__button"
-                                onClick={() => this.props.getToken(this.state.requestToken.request_token)}>
+                                onClick={() => this.props.setToken(this.state.requestToken.request_token)}>
                                 <b>Log with TheMovieDB</b>
                             </button>
                         </a>
