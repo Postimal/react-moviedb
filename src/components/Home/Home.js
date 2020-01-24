@@ -18,43 +18,68 @@ class Home extends Component {
   };
 
 
-  componentDidMount() {
-    this.setState({isLoading: true})
-    Promise.all([
-                fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.props.apiOpener}&language=en-US&page=1`),
-                fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.props.apiOpener}&language=en-US&page=1`),
-                fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiOpener}&language=en-US&page=1`),
-                fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.props.apiOpener}&language=en-US&page=1`),
-                fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.props.apiOpener}`),
-                fetch(`https://api.themoviedb.org/3/configuration?api_key=${this.props.apiOpener}`)
-                ])
+//   componentDidMount() {
+//     this.setState({isLoading: true})
+//     Promise.all([
+//                 fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+//                 fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+//                 fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+//                 fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.props.apiOpener}&language=en-US&page=1`),
+//                 fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.props.apiOpener}`),
+//                 fetch(`https://api.themoviedb.org/3/configuration?api_key=${this.props.apiOpener}`)
+//                 ])
 
-              .then(([res1, res2, res3, res4, res5, res6]) => {
-                return Promise.all([res1.json(),res2.json(),res3.json(),res4.json(),res5.json(),res6.json()])
-              })
-              .then(([res1,res2,res3,res4,res5,res6]) => {
-                this.setState({
-                  moviesUpcoming: res1,
-                  popular: res2,
-                  now_playing: res3,
-                  top_rated: res4,
-                  movieGenres: res5,
-                  MDBConfig: res6,
-                })
-              })
-              .catch((error) => {
-                console.log(error);
-              });
+//               .then(([res1, res2, res3, res4, res5, res6]) => {
+//                 return Promise.all([res1.json(),res2.json(),res3.json(),res4.json(),res5.json(),res6.json()])
+//               })
+//               .then(([res1,res2,res3,res4,res5,res6]) => {
+//                 this.setState({
+//                   moviesUpcoming: res1,
+//                   popular: res2,
+//                   now_playing: res3,
+//                   top_rated: res4,
+//                   movieGenres: res5,
+//                   MDBConfig: res6,
+//                 })
+//               })
+//               .catch((error) => {
+//                 console.log(error);
+//               });
               
+// }
+
+
+
+// own fetch function with 2 parameters, not siure if its ok but propably faster version
+componentDidMount() {
+  this.setState({isLoading: true});
+
+  const fetchData = async (url,stateName) => {
+    try {   
+        const response = await fetch(url)
+        const data = await response.json();
+        this.setState({[stateName]:data});
+    } catch(error) {
+        console.log(error);
+    }
+  }
+  fetchData(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.props.apiOpener}&language=en-US&page=1`, 'moviesUpcoming');
+  fetchData(`https://api.themoviedb.org/3/movie/popular?api_key=${this.props.apiOpener}&language=en-US&page=1`, 'popular');
+  fetchData(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.props.apiOpener}&language=en-US&page=1`, 'now_playing');
+  fetchData(`https://api.themoviedb.org/3/movie/top_rated?api_key=${this.props.apiOpener}&language=en-US&page=1`,'top_rated');
+  fetchData(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.props.apiOpener}`, 'movieGenres');
+  fetchData(`https://api.themoviedb.org/3/configuration?api_key=${this.props.apiOpener}`,'MDBConfig');
+
 }
 
-  componentDidUpdate(prevProps, prevState) {
+
+componentDidUpdate(prevProps, prevState) {
     if (this.state.isLoading) {
       setTimeout(() => { 
         this.setState(() => ({isLoading: false}))
-      }, 800);
+      }, 500);
     }
-  }
+}
 
   
   render() {
