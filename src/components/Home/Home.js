@@ -45,7 +45,7 @@ class Home extends Component {
 //               .catch((error) => {
 //                 console.log(error);
 //               });
-              
+
 // }
 
 
@@ -55,7 +55,7 @@ componentDidMount() {
   this.setState({isLoading: true});
 
   const fetchData = async (url,stateName) => {
-    try {   
+    try {
         const response = await fetch(url)
         const data = await response.json();
         this.setState({[stateName]:data});
@@ -75,13 +75,13 @@ componentDidMount() {
 
 componentDidUpdate(prevProps, prevState) {
     if (this.state.isLoading) {
-      setTimeout(() => { 
+      setTimeout(() => {
         this.setState(() => ({isLoading: false}))
-      }, 500);
+      }, 700);
     }
 }
 
-  
+
   render() {
     const { isLoading } = this.state;
 
