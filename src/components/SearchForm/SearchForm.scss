@@ -1,40 +1,42 @@
 @import '../../styles/variables';
 
 .nav-search-form {
-    position: relative;
-    display: flex;
-    height: 70%;
+	position: relative;
+	display: flex;
+	height: 70%;
 
-    input {
-          background: #000;
-          color: #fff;
-          opacity: 0.9;
-          border-radius: 10px;
-    }
+	input {
+		padding: 0 5px;
+		background: #000;
+		color: #fff;
+		opacity: 0.9;
+		border-radius: 10px;
+		outline: none;
+	}
 
-    &:hover svg {
-        fill: rgba(219, 69, 69, 1);
-    }
+	&:hover svg {
+		fill: rgba(219, 69, 69, 1);
+	}
 
-    ::placeholder,::-moz-placeholder {
-        padding-left: 10px;
-        color: rgba(219, 69, 69, 1);
-    }
-    
-  
-    &-button button {
-        position:absolute;
-        right:2px;
-        top:8px;
-        border-radius:8px;
-        background:#000;
-        opacity: 0.8;
-        border: none;
-    }
-    
-    svg {
-        fill: rgba(219, 69, 69, 0.51);
-        height: 20px;
-        transition-duration: 500ms;
-    }
+	::placeholder,
+	::-moz-placeholder {
+		padding-left: 10px;
+		color: rgba(219, 69, 69, 1);
+	}
+
+	&-button button {
+		position: absolute;
+		right: 2px;
+		top: 8px;
+		border-radius: 8px;
+		background: #000;
+		opacity: 0.8;
+		border: none;
+	}
+
+	svg {
+		fill: rgba(219, 69, 69, 0.51);
+		height: 20px;
+		transition-duration: 500ms;
+	}
 }

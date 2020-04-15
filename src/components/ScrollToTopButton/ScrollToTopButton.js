@@ -7,7 +7,7 @@ const ScrollToTopButton = () => {
     const [offset, setOffset] = useState(0);
 
     const listener = () => {
-            setOffset(window.pageYOffset);
+        setOffset(window.pageYOffset);
         }
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const ScrollToTopButton = () => {
     }, [])
 
     const scrollToTop = () => {
-            let position = offset > 100 ? 0 : 5000;
+        let position = offset > 100 ? 0 : 5000;
 
         window.scrollTo({
             top: position,

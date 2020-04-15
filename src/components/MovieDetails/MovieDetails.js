@@ -3,6 +3,7 @@ import Spinner from './../Spinner/Spinner';
 import CommentSection from './CommentSection/CommentSection';
 import MovieCast from './MovieCast/MovieCast';
 import './MovieDetails.scss';
+import MovieStarRating from './MovieStarRating/MovieStarRating';
 
  class MovieDetails extends Component {
     state = {
@@ -10,7 +11,7 @@ import './MovieDetails.scss';
         creditsData: null,
         videos: null,
         isLoading: false,
-        // przykładowo pobieramy komentarze z bazy danych i wrzucamy je do state 
+        // przykładowo pobieramy komentarze z bazy danych i wrzucamy je do state
         comments: [
           {name: "John Connor", comment: "Very cool, action till the end!!!", id: 'Nov 26 2019 11:49:50'},
           {name: "anonim", comment: "For me, strong 7/10. Good for lazy sunday", id:'Nov 24 2019 10:19:00'},
@@ -19,7 +20,7 @@ import './MovieDetails.scss';
           // {name: "Mietek", comment: "Bardzo słabo zamiast się śmiać po prostu zasnąłem...", id: 'Nov 24 2019 11:49:50'},
           // {name: "anonim", comment: "A mi się film podoba, dziwny humor trochę abstrakcyjny", id:'Nov 24 2019 10:19:00'}
         ]
-       
+
     }
 
     componentDidMount() {
@@ -29,7 +30,7 @@ import './MovieDetails.scss';
                   fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/credits?api_key=${this.props.apiOpener}&language=en-US`),
                   fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}/videos?api_key=${this.props.apiOpener}&language=en-US`)
                   ])
-                  
+
                 .then(([res1, res2, res3]) => {
                   return Promise.all([res1.json(),res2.json(),res3.json()])
                 })
@@ -46,8 +47,6 @@ import './MovieDetails.scss';
                 });
   }
 
-
-    //  funkcja dodajca komentarz, do przekazania w propsach do comment section
     addComment = comment => {
       let commentList = this.state.comments;
       comment.id = String(new Date()).split(' ').splice(1,4).join(' ')
@@ -72,7 +71,7 @@ import './MovieDetails.scss';
                         background: `linear-gradient(
                                                      rgba(0, 0, 0, 0.6),
                                                     rgba(0, 0, 0, 0.6)
-                                                    ) center center no-repeat, #fff 
+                                                    ) center center no-repeat, #fff
                                                     url('https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}') center top no-repeat`,
                             backgroundSize: "cover,cover"
                      }}
@@ -82,13 +81,17 @@ import './MovieDetails.scss';
                     <h2 className="movie-box-info__title">{movie.title} | {movie.release_date.substring(0,4)}</h2>
                     <p className="movie-box-info__genre">
                       {movie.genres.length >= 2
-                      ? 
+                      ?
                       (`${movie.genres[0].name} / ${movie.genres[1].name}`)
                       : (movie.genres[0].name)
-                      } 
+                      }
                       {" "}
                     | {movie.vote_average} Rating
                     </p>
+                    <MovieStarRating
+                      rating={movie.vote_average}
+                      logStatus={this.props.logStatus}
+                    />
                     <p className="movie-box-info__runtime">{movie.runtime} min</p>
                     <p className="movie-box-info__production">{movie.production_companies[0]? movie.production_companies[0].name : null}</p>
                 </div>
@@ -100,7 +103,7 @@ import './MovieDetails.scss';
               <div className="movie-cast">
                 <MovieCast cast={this.state.creditsData.cast}/>
               </div>
-              <CommentSection  
+              <CommentSection
                 comments={this.state.comments}
                 addComment={this.addComment}
               />

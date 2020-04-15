@@ -17,7 +17,6 @@ class Home extends Component {
     isLoading: false,
   };
 
-
 //   componentDidMount() {
 //     this.setState({isLoading: true})
 //     Promise.all([
@@ -77,15 +76,13 @@ componentDidUpdate(prevProps, prevState) {
     if (this.state.isLoading) {
       setTimeout(() => {
         this.setState(() => ({isLoading: false}))
-      }, 700);
+      }, 500);
     }
 }
 
 
   render() {
     const { isLoading } = this.state;
-
-    // Initiates carousels
     (() => {
       const sliderEl = document.querySelectorAll(".swiper-container");
       if (!sliderEl) {
@@ -157,6 +154,7 @@ componentDidUpdate(prevProps, prevState) {
           MDBConfig={this.state.MDBConfig}
           movieGenres={this.state.movieGenres.genres}
           items={this.state.now_playing.results}
+          apiOpener={this.props.apiOpener}
         />
         {movie}
         <Footer />

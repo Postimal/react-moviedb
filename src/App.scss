@@ -1,7 +1,13 @@
 @import "./styles/variables";
 
 body {
-    background-color: darken($tertiary-color,5);
-    font-family: $primary-font;
-    overflow-x: hidden;
+	background-color: darken($tertiary-color, 5);
+	font-family: $primary-font;
+	overflow-x: hidden;
+}
+
+button,
+button:focus,
+button:active {
+	outline: none;
 }
