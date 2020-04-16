@@ -46,12 +46,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         <ScrollToTop>
-          <Navigation />
+          <Navigation logStatus={this.state.logInStatus} />
           <Switch>
-            <Route exact path='/react-moviedb' render={(props) => <Home {...props} apiOpener={this.state.apiOpener} />}/>
+            <Route exact path='/react-moviedb' render={(props) => <Home {...props} apiOpener={this.state.apiOpener}  />}/>
             <Route path='/search/:id' render={(props) => <SearchResults {...props} searchParam={this.state.searchParam} />}/>
             <Route path='/discover' render={(props) => <Discover {...props} apiOpener={this.state.apiOpener} />}/>
-            <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} logStatus={this.state.logInStatus} />}/>
+            <Route path='/details/movie/:id'  render={(props) => <MovieDetails {...props} apiOpener={this.state.apiOpener} logStatus={this.state.logInStatus} sessionId={this.state.guest_session_id} />}/>
             <Route path="/log-in" render={(props) => <UserLogIn {...props} apiOpener={this.state.apiOpener} setToken={this.setToken} getGuestSessionID={this.getGuestSessionID}/>} />
             <Route path="/profile/:status" render={(props) => <UserProfile {...props} apiOpener={this.state.apiOpener} sessionID={this.state.guest_session_id} />}/>
 

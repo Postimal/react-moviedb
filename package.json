@@ -4,6 +4,7 @@
 	"homepage": "http://Postimal.github.io/react-moviedb",
 	"private": true,
 	"dependencies": {
+		"light-toast": "^0.2.3",
 		"lodash.debounce": "^4.0.8",
 		"node-sass": "^4.13.1",
 		"react": "^16.12.0",

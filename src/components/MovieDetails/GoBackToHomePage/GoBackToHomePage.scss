@@ -1,34 +1,3 @@
-@import "../../styles/variables";
-
-div {
-	color: #fff;
-}
-
-.movie-box {
-	position: relative;
-	height: 75vh;
-	width: 100%;
-	font-family: $primary-font;
-
-	&-info {
-		padding: 40vh 0 0 33px;
-	}
-}
-
-.movie-description {
-	margin: 15px auto;
-	padding: 20px;
-	background: $tertiary-color;
-	border-radius: 10px;
-	border: 2px solid rgba(219, 69, 69, 0.40);
-	font-family: $primary-font;
-
-	h4 {
-		margin: 0 0 10px 0;
-		text-align: center;
-	}
-}
-
 .go-homepage-button--svg {
 	position: absolute;
 	top: 40px;
@@ -46,11 +15,5 @@ div {
 	&:hover {
 		cursor: pointer;
 		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABKklEQVR4nO3bWwrCMBBG4bMhNyPe3Uy3W1yCgr4YKJqI1sxkNP+BPPjidD4Qa0FQSqn3WgIjcA1+xvu1Vu8Xlp8iVK/1Up8eAVgDREsACEAAAkAAYa/PPAEgAAEIAAG0A1i0GDqpKcARuACD9+BJzQDS8mnw4Dl8UhOAx+Wv99ctPg7uAKXl9x7DM7kClJbfWQ9+kRtAafmt5dA3cgHILX8GNlYDP8gcoLT82mLYjEwBSsuvag/6IjOADc/LW565mQGcMm8uAMMzN30EKr1PtujfAGAMALHvAcABAGIjuABA57fCqWi/BMEZAMoIB4/hmdwBoPMHIqmuH4mlun4omur6sXiEBIAABCAABCAAASAAAZgARBcWAM4A0Y8Aatf9n6a6/9ucUur/ugEhCgMSeFjrOgAAAABJRU5ErkJggg==");
-	}
-}
-@media only screen and (max-width: 600px) {
-	.movie-description {
-		margin: 5px auto;
-		padding: 7px;
 	}
 }

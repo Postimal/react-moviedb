@@ -1,3 +1,100 @@
-div,h1 {
-    color: #fff
+@import '../../styles/variables';
+div,
+h2 {
+	color: #fff;
+}
+
+.go-homepage-button {
+	position: absolute;
+	top: 80px;
+	color: $secondary-color;
+	font-size: 25px;
+	margin-left: 20px;
+	padding: 20px;
+	border: 2px solid antiquewhite;
+	border-radius: 10px;
+	text-decoration: none;
+	transition: 0.15s;
+	will-change: transform;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+.guest-information-message {
+	position: relative;
+	margin: 110px 0 0 20px;
+	max-width: 250px;
+	border: 4px dotted darkcyan;
+	padding: 4px;
+	text-align: center;
+	animation: banner 2s;
+}
+
+@keyframes banner {
+	from {
+		transform: scale(0.15);
+	}
+
+	to {
+		transform: scale(1.00);
+	}
+}
+
+.user-rated-item-container {
+	display: flex;
+	flex-direction: column;
+	&__movies,
+	&__tv,
+	&__tvepisodes {
+		display: flex;
+		padding: 20px;
+		flex-wrap: wrap;
+	}
+}
+
+.movie-item {
+	opacity: .8;
+	position: relative;
+	text-align: center;
+	transition: transform .2s;
+	text-decoration: none;
+	margin: 20px 0 0 20px;
+	&__image {
+		border-radius: 5px;
+		height: 150px;
+		width: auto;
+	}
+
+	&__title {
+		color: $secondary-font-color;
+		font-size: .6rem;
+		margin: 5px 0 0;
+		width: 90px;
+	}
+
+	&__your-rate {
+		color: $secondary-font-color;
+		font-size: .9rem;
+		width: 90px;
+		margin: 0;
+
+		&--value {
+			color: rgba(17, 214, 221, 0.8);
+		}
+	}
+
+	&-rating {
+		background-color: rgba(0, 0, 0, .8);
+		color: $primary-font-color;
+		font-size: .8rem;
+		margin: 0;
+		padding: 3px 0;
+		position: absolute;
+		left: 0;
+		top: .2rem;
+		text-align: center;
+		width: 100%;
+	}
 }

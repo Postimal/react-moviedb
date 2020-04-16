@@ -9,7 +9,7 @@ class Navigation extends Component {
     myNavigationPanelRef = React.createRef();
     menuRef = React.createRef();
     render() {
-       
+
         const toggleMenuHandler = () => {
             this.myNavigationPanelRef.current.classList.toggle('open');
             this.menuRef.current.classList.toggle('open');
@@ -19,7 +19,7 @@ class Navigation extends Component {
             <header className="nav-panel">
                 <div className="logo">
                     <a href='#footer'>
-                        <img 
+                        <img
                         src={logo}
                         alt="logo."
                         />
@@ -34,7 +34,7 @@ class Navigation extends Component {
                     </NavLink>
                     <NavLink to={'/profile'} activeClassName="active">
                     <button className="main-nav-bottom-section__button">
-                        USER
+                        {this.props.logStatus === "GUEST"? "GUEST" : "USER"}
                     </button>
                     </NavLink>
                     <NavLink to={'/discover'} activeClassName="active">
@@ -48,7 +48,7 @@ class Navigation extends Component {
                 </div>
             </header>
         )
-    }    
+    }
 }
 
 export default Navigation

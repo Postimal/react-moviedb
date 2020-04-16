@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Spinner from './../Spinner/Spinner';
 import CommentSection from './CommentSection/CommentSection';
 import MovieCast from './MovieCast/MovieCast';
-import './MovieDetails.scss';
 import MovieStarRating from './MovieStarRating/MovieStarRating';
+
+import './MovieDetails.scss';
+import GoBackToHomePage from './GoBackToHomePage/GoBackToHomePage';
 
  class MovieDetails extends Component {
     state = {
@@ -78,9 +80,9 @@ import MovieStarRating from './MovieStarRating/MovieStarRating';
               >
                 <div className="movie-box-info">
                     {"Movie Details".toUpperCase()}
-                    <h2 className="movie-box-info__title">{movie.title} | {movie.release_date.substring(0,4)}</h2>
+                    <h2 className="movie-box-info__title">{movie.title} | {movie.release_date? movie.release_date.substring(0,4): null}</h2>
                     <p className="movie-box-info__genre">
-                      {movie.genres.length >= 2
+                      {movie.genres && movie.genres.length >= 2
                       ?
                       (`${movie.genres[0].name} / ${movie.genres[1].name}`)
                       : (movie.genres[0].name)
@@ -90,18 +92,24 @@ import MovieStarRating from './MovieStarRating/MovieStarRating';
                     </p>
                     <MovieStarRating
                       rating={movie.vote_average}
+
                       logStatus={this.props.logStatus}
+                      apiOpener={this.props.apiOpener}
+                      sessionId={this.props.sessionId}
+
+                      movieId={credits.id}
                     />
                     <p className="movie-box-info__runtime">{movie.runtime} min</p>
                     <p className="movie-box-info__production">{movie.production_companies[0]? movie.production_companies[0].name : null}</p>
                 </div>
+                <GoBackToHomePage/>
               </div>
               <div className="movie-description">
                 <h4>Overview</h4>
                 {movie.overview}
               </div>
               <div className="movie-cast">
-                <MovieCast cast={this.state.creditsData.cast}/>
+                <MovieCast cast={credits.cast}/>
               </div>
               <CommentSection
                 comments={this.state.comments}
