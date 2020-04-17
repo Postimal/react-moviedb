@@ -6,6 +6,7 @@ import avatar from './hacker-avatar.png';
     state = {
             name: '',
             comment: '',
+            showWarningMessage: false,
     }
 
     handleChange = e => {
@@ -24,20 +25,22 @@ import avatar from './hacker-avatar.png';
         this.setState({
             name:'',
             comment:'',
+            showWarningMessage:false,
         })
     }
     onSubmit = e => {
         e.preventDefault();
         if(this.state.name && this.state.comment){
             return [this.props.addComment(this.state),this.clearState()];
-         };
-        
+         }
+        else {this.setState({showWarningMessage: true})}
+
     }
 
     render() {
         return (
             <div className="comment-box">
-                <img 
+                <img
                     src={avatar}
                     alt="avatar"
                     style={{width:'70px', paddingRight:'10px'}}
@@ -49,10 +52,11 @@ import avatar from './hacker-avatar.png';
                         <input className="submit-input" type="submit" value="Add comment"/>
                         <label htmlFor='name'></label>
                         <input className="text-input" type="text" name="name" value={this.state.name} onChange={this.onInputChange} placeholder="Name"/>
+                        {this.state.showWarningMessage && <p className="form__warning-message">Please fill out the form!</p>}
                     </form>
                 </div>
             </div>
-            
+
         )
     }
 }

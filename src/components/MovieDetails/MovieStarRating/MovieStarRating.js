@@ -47,7 +47,7 @@ const MovieStarRating = ({rating, logStatus, movieId, apiOpener,sessionId}) => {
     rating = isChanged? rating + 1 : Math.round(rating / 2);
     const allStars = ratingContainer.current.childNodes;
     allStars.forEach((star,index) => {
-      isChanged && index < rating && star.classList.add("star-rating-container__item--active");
+      // isChanged && index < rating && star.classList.add("star-rating-container__item--active");
       index < rating && star.classList.add("star-rating-container__item--active")
     });
   }

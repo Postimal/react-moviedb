@@ -1,39 +1,44 @@
 @import '../../../../styles/variables';
 
-.comment-box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.comment-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-        &-form {
-            width: 90%;
-            margin: 20px auto;
-            padding:  15px 15px 5px;
-            background: #444;
-            opacity: 0.8;
-            border-radius: 15px;
-        }
+	&-form {
+		width: 90%;
+		margin: 20px auto;
+		padding: 15px 15px 5px;
+		background: #444;
+		opacity: 0.8;
+		border-radius: 15px;
+	}
 
-        .text-area {
-            width: 100%;
-            height: 50px;
-            margin-bottom: 10px;
-        }
+	.text-area {
+		width: 100%;
+		height: 50px;
+		margin-bottom: 10px;
+	}
 
-        .text-input {
-            float: right;
-            width: 30%;
-        }
+	.text-input {
+		float: right;
+		width: 30%;
+	}
 
-        .submit-input {
-            float: right;
-            margin-left: 10px;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            padding: 7px 14px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-            
+	.submit-input {
+		float: right;
+		margin-left: 10px;
+		background-color: #4caf50;
+		border: none;
+		color: white;
+		padding: 7px 14px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	& .form__warning-message {
+		color: red;
+		font-size: 0.8rem;
+		margin: 2px;
+	}
 }

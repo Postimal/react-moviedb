@@ -1,87 +1,86 @@
 @import './../../styles/variables';
 
 .user-log {
-    position: relative;
-    img {
-        width: 80px;
-        position: absolute;
-        left: calc(50% - 40px);
-        bottom: 30px;
-        z-index: 10;
-    }
+	position: relative;
+	img {
+		width: 80px;
+		position: absolute;
+		left: calc(50% - 40px);
+		bottom: 30px;
+		z-index: 10;
+	}
 }
 
 .user-log-in {
-    width: 300px;
-    height: 60vh;
-    margin: 100px auto;
-    background: linear-gradient(150deg,rgba(122, 125, 218, 0.842) 30%, #2288db 62%, rgba(54, 59, 151, 0.842) 92%);
-    opacity: 0.9;
-    border-radius: 10px;
-    border: 4px solid $secondary-color;
+	width: 300px;
+	height: 60vh;
+	margin: 100px auto;
+	background: linear-gradient(150deg, rgba(122, 125, 218, 0.842) 30%, #2288db 62%, rgba(54, 59, 151, 0.842) 92%);
+	opacity: 0.9;
+	border-radius: 10px;
+	border: 4px solid $secondary-color;
 
-    svg {
-        height: 50px;
-        padding: 30px;
-        background: $primary-color;
-        border-radius: 20%;
-    }
+	svg {
+		height: 50px;
+		padding: 30px;
+		background: $primary-color;
+		border-radius: 20%;
+	}
 
-    &-icon {
-        padding: 10px;
-        padding-top: 20px;
-        display: flex;
-        justify-content: center;
-    }
+	&-icon {
+		padding: 10px;
+		padding-top: 20px;
+		display: flex;
+		justify-content: center;
+	}
 
-    &-container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+	&-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
-        a { 
-            margin-bottom: 20px;
-            &:hover button {
-                color: rgba(219, 69, 69, 1);
-                border: 2px solid rgba(219, 69, 69, 1);
-            }
+		a {
+			margin-bottom: 20px;
+			&:hover button {
+				color: rgba(219, 69, 69, 1);
+				border: 2px solid rgba(219, 69, 69, 1);
+			}
 
-            button {
-                padding: 8px 16px;
-                border-radius: 10px;
-                background: $primary-color;
-                color: #fff;
-                border: 2px solid rgba(219, 69, 69, 0.61);
-                transition: 300ms
-            }
-        }
+			button {
+				padding: 8px 16px;
+				border-radius: 10px;
+				background: $primary-color;
+				color: #fff;
+				border: 2px solid rgba(219, 69, 69, 0.61);
+				transition: 300ms;
+			}
+		}
 
-        h2 {
-            text-align: center;
-            text-transform: uppercase;
-        }
-    }
+		h2 {
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
 
-    h3 {
-        margin-top: 0;
-        text-align: center;
-        color: #ddd;
-    }
-    
+	h3 {
+		margin-top: 0;
+		text-align: center;
+		color: #ddd;
+	}
 }
 
 @media only screen and (max-width: 786px) {
-    .user-log {
-        &-in {
-            height: 80vh;
-            margin: 20px auto;
-        }
+	.user-log {
+		&-in {
+			height: 85vh;
+			margin: 20px auto;
+		}
 
-        img {
-            width: 100px;
-            position: absolute;
-            left: calc(50% - 50px);
-            bottom: 10px;
-        }
-    }
+		img {
+			width: 60px;
+			position: absolute;
+			left: calc(50% - 30px);
+			bottom: 10px;
+		}
+	}
 }
