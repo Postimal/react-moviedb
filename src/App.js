@@ -11,11 +11,13 @@ import Discover from './components/Discover/Discover';
 import NoMatch from './components/NoMatch/NoMatch';
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
+const client_id = process.env.REACT_APP_MOVIEDB_KEY;
+
 
 
 class App extends Component {
   state = {
-    apiOpener: 'f832443dc432c07133c9696b7323dfa9',
+    apiOpener: client_id,
     logInStatus: "",
     guest_session_id: '',
     request_token: '',
