@@ -47,12 +47,12 @@ import avatar from './hacker-avatar.png';
                 />
                 <div className="comment-box-form">
                     <form onSubmit={this.onSubmit}>
-                        {this.state.showWarningMessage && <p className="form__warning-message">Please fill out the form!</p>}
                         <label htmlFor="comment"></label>
                         <textarea className="text-area" value={this.state.comment} onChange={this.handleChange} placeholder="Add a comment..."/>
                         <input className="submit-input" type="submit" value="Add comment"/>
                         <label htmlFor='name'></label>
                         <input className="text-input" type="text" name="name" value={this.state.name} onChange={this.onInputChange} placeholder="Name"/>
+                        {this.state.showWarningMessage && <p className="form__warning-message">Please fill out the form!</p>}
                     </form>
                 </div>
             </div>
