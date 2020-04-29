@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "96af126934d5f523660cfd1a240be21b",
+    "revision": "beb6fe78067bfc77f90ed594a8a1f984",
     "url": "/react-moviedb/index.html"
   },
   {
-    "revision": "8277a6b6324dc2eede83",
+    "revision": "0de2492c0b89405c5d94",
     "url": "/react-moviedb/static/css/2.f524894f.chunk.css"
   },
   {
-    "revision": "93f624f4dd9f2ef086bb",
-    "url": "/react-moviedb/static/css/main.2d1ee2f1.chunk.css"
+    "revision": "f8f96f04266fb5f45a33",
+    "url": "/react-moviedb/static/css/main.3e1b6cff.chunk.css"
   },
   {
-    "revision": "8277a6b6324dc2eede83",
-    "url": "/react-moviedb/static/js/2.ac2f74d5.chunk.js"
+    "revision": "0de2492c0b89405c5d94",
+    "url": "/react-moviedb/static/js/2.727a2fbe.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/react-moviedb/static/js/2.ac2f74d5.chunk.js.LICENSE.txt"
+    "url": "/react-moviedb/static/js/2.727a2fbe.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "93f624f4dd9f2ef086bb",
-    "url": "/react-moviedb/static/js/main.b3e3720a.chunk.js"
+    "revision": "f8f96f04266fb5f45a33",
+    "url": "/react-moviedb/static/js/main.aaa17a1c.chunk.js"
   },
   {
     "revision": "30c590691eab810ff4af",
