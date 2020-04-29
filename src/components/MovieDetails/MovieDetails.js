@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+
 import Spinner from './../Spinner/Spinner';
 import CommentSection from './CommentSection/CommentSection';
 import MovieCast from './MovieCast/MovieCast';
 import MovieStarRating from './MovieStarRating/MovieStarRating';
+import GoBackToHomePage from './GoBackToHomePage/GoBackToHomePage';
 
 import './MovieDetails.scss';
-import GoBackToHomePage from './GoBackToHomePage/GoBackToHomePage';
+
 
  class MovieDetails extends Component {
     state = {

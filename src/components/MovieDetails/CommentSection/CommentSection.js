@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AddComment from './AddComments/AddComments';
 import CommentList from './CommentList/CommentList';
 import './CommentSection.scss';

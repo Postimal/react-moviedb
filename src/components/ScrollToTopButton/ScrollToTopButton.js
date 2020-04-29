@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-// import debounce from 'lodash.debounce'; / i have to learn how to cancel lodach.debounce setInterval
+
 import './ScrollToTopButton.scss';
 
 const ScrollToTopButton = () => {

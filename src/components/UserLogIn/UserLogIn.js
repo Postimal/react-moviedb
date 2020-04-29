@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import logo from '../Navigation/cinema-clapboard.png';
 import './UserLogIn.scss'
- 
+
 class UserLogIn extends Component {
     state ={
         requestToken: '',
@@ -55,14 +56,10 @@ class UserLogIn extends Component {
         </g>
         </svg>
 
-        
-        
-        if (!this.state.requestToken) {
-            return <h1>logowanie w toku</h1>;
-          }
+
         return (
             <div className='user-log'>
-                <img 
+                <img
                     src={logo}
                     alt="logo."
                 />
@@ -79,7 +76,7 @@ class UserLogIn extends Component {
                             </button>
                         </a>
                         <Link to="/profile/guest">
-                            <button className="user-log-in-container__button" 
+                            <button className="user-log-in-container__button"
                                 onClick={() => this.props.getGuestSessionID(this.state.guestSession.guest_session_id)}>
                                 <b>Browse as Guest</b>
                             </button>

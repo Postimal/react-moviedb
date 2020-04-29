@@ -1,15 +1,15 @@
 import React from 'react';
+
 import './CommentList.scss';
 import avatar from '../AddComments/hacker-avatar.png'
 
- function CommentList(props) {
-    // const twoRandomComments = shuffle(props.comments).slice(0,2);
 
+ function CommentList(props) {
     const commentList = props.comments.map( comment => {
         return (
             <div className="comment-list-container" key={comment.id}>
                 <img
-                    className="comment-list-container__avatar" 
+                    className="comment-list-container__avatar"
                     src={avatar}
                     alt="avatar"
                     style={{width:'60px', paddingRight:'10px', paddingTop:'10px'}}
@@ -22,8 +22,6 @@ import avatar from '../AddComments/hacker-avatar.png'
         )
 
     })
-
-        return <div>{commentList}</div>
-   
+    return <div>{commentList}</div>
 }
 export default CommentList

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
+
 import './SearchForm.scss';
 
  class SearchForm extends Component {

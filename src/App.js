@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import './App.scss';
 import {BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
 import Home from './components/Home/Home';
 import SearchResults from './components/SearchResults/SearchResults';
 import Navigation from './components/Navigation/Navigation';
@@ -11,16 +11,18 @@ import Discover from './components/Discover/Discover';
 import NoMatch from './components/NoMatch/NoMatch';
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
+import './App.scss';
 
+
+const client_id = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
   state = {
-    apiOpener: 'f832443dc432c07133c9696b7323dfa9',
+    apiOpener:client_id,
     logInStatus: "",
     guest_session_id: '',
     request_token: '',
   }
-
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.request_token!== this.state.request_token && !this.state.request_token)
@@ -41,7 +43,6 @@ class App extends Component {
       })
   }
 
-
   render() {
     return (
       <BrowserRouter>
@@ -58,7 +59,6 @@ class App extends Component {
             {!this.state.logInStatus  ? <Redirect from='/profile' to="/log-in" /> : <Redirect from='/profile' to='/profile/approved' /> }
             {!this.state.logInStatus  ? <Redirect from='/profile/approved' to="/log-in" /> : <Redirect from='/log-in' to='/profile/approved' /> }
             {!this.state.logInStatus === 'GUEST'  ? <Redirect from='/log-in' to='/profile/guest' /> : <Redirect from='/profile/guest' to="/log-in" /> }
-
             <Route component={NoMatch}/>
           </Switch>
         </ScrollToTop>

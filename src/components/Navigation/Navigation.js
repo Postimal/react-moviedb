@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import logo from './cinema-clapboard.png';
 import SearchForm from '../SearchForm/SearchForm'
 import './Navigation.scss';
